@@ -118,7 +118,7 @@
 						"dependencies": [],
 						"downloads": [],
 						"files": [
-							"HelloWorld*"
+							"target/HelloWorld*"
 						],
 						"package_install_command": "",
 						"installed_path": ""
