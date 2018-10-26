@@ -1,0 +1,238 @@
+{
+	"metadata": {
+		"version": 1
+	},
+	"application": {
+		"name": "simple-hello-world-java",
+		"language": "JAVA",
+		"scm": {
+			"provider": "SCM_BITBUCKET_SERVER",
+			"URL": "ssh://git@git.calculi.com:7999/exp/simple-hello-world-java.git"
+		},
+		"artifact_store": {
+			"type": "s3",
+			"repositories": [
+				{
+					"category": "rc-packaging",
+					"bucket": "calculi-guide-rails"
+				},
+				{
+					"category": "final-packaging",
+					"bucket": "calculi-guide-rails"
+				},
+				{
+					"category": "logs",
+					"bucket": "guide-rails-application-logs"
+				}
+			]
+		}
+	},
+	"pipeline": {
+		"segments": [
+			{
+				"name": "Build",
+				"segment_type": "build",
+				"job_steps": [
+					{
+						"name": "Print Environment",
+						"definition": "logs relevant environment information",
+						"command": "printenv | sort",
+						"properties": []
+					},
+					{
+						"name": "get-ups-aptget",
+						"definition": "update package manager and OS files",
+						"command": "echo 'Configuring apt-get'\napt-get -y upgrade\napt-get -y update",
+						"properties": []
+					},
+					{
+						"name": "get-deps-make",
+						"definition": "Install GNU Make",
+						"command": "echo 'Installing Gnu Make'\napt-get -y install make",
+						"properties": []
+					},
+					{
+						"name": "DEBUG-env",
+						"definition": "DEBUG-env",
+						"command": "set +e\nmake about-make\nmake about-dir\nmake about-user\nmake about-env\nmake about-git\nmake about-java\nmake about-gradle\nset -e",
+						"properties": []
+					},
+					{
+						"name": "build",
+						"definition": "build",
+						"command": "make all",
+						"properties": []
+					},
+					{
+						"name": "DEBUG-dir-build",
+						"definition": "DEBUG-dir-build",
+						"command": "find './build/'",
+						"properties": []
+					},
+					{
+						"name": "copy-jar",
+						"definition": "Copy final JAR to expected location",
+						"command": "cp -f build/libs/((application.name))-*-bin.jar .",
+						"properties": []
+					}
+				],
+				"exit_actions": {
+					"default": {
+						"fetch_logs": true,
+						"notifications": [
+							{
+								"type": "slack",
+								"send_notification": false,
+								"to": null,
+								"message": ""
+							}
+						],
+						"code_analysis": {
+							"publish": true,
+							"properties": []
+						},
+						"delete_instances": true
+					},
+					"on_success": {
+						"notifications": [
+							{
+								"type": "slack",
+								"send_notification": false,
+								"to": null,
+								"message": ""
+							}
+						],
+						"code_analysis": null
+					},
+					"on_failure": {
+						"notifications": [
+							{
+								"type": "slack",
+								"send_notification": false,
+								"to": null,
+								"message": ""
+							}
+						],
+						"code_analysis": null
+					},
+					"on_abort": {
+						"notifications": [
+							{
+								"type": "slack",
+								"send_notification": false,
+								"to": null,
+								"message": ""
+							}
+						],
+						"code_analysis": null
+					}
+				},
+				"deployment_strategy": {
+					"canary_watch_time": "",
+					"update_watch_time": "",
+					"serial": false
+				},
+				"application_init": {
+					"command": "",
+					"arguments": null
+				},
+				"packages": [
+					{
+						"name": "((application.name))",
+						"dependencies": [],
+						"downloads": [],
+						"files": [
+							"((application.name))*"
+						],
+						"package_install_command": "",
+						"installed_path": ""
+					}
+				],
+				"instance_tags": [
+					{
+						"name": "application.name",
+						"value": "((application.name))"
+					}
+				]
+			}
+		],
+		"exit_actions": {
+			"default": {
+				"fetch_logs": true,
+				"notifications": [
+					{
+						"type": "slack",
+						"send_notification": false,
+						"to": null,
+						"message": ""
+					}
+				],
+				"code_analysis": {
+					"publish": true,
+					"properties": []
+				},
+				"delete_instances": true
+			},
+			"on_success": {
+				"notifications": [
+					{
+						"type": "slack",
+						"send_notification": false,
+						"to": null,
+						"message": ""
+					}
+				],
+				"code_analysis": null
+			},
+			"on_failure": {
+				"notifications": [
+					{
+						"type": "slack",
+						"send_notification": false,
+						"to": null,
+						"message": ""
+					}
+				],
+				"code_analysis": null
+			},
+			"on_abort": {
+				"notifications": [
+					{
+						"type": "slack",
+						"send_notification": false,
+						"to": null,
+						"message": ""
+					}
+				],
+				"code_analysis": null
+			}
+		},
+		"default_properties": null,
+		"deployment_files": [
+			{
+				"source_path": "ci/config/application.config",
+				"target_path": "config/application.config"
+			},
+			{
+				"source_path": "ci/config/service-registry.erb",
+				"target_path": "config/service-registry.json"
+			},
+			{
+				"source_path": "ci/bin/start-service.sh",
+				"target_path": "bin/start-service.sh"
+			},
+			{
+				"source_path": "ci/bin/execute-tests.sh",
+				"target_path": "bin/execute-tests.sh"
+			}
+		],
+		"application_init": {
+			"command": "bin/start-service.sh",
+			"arguments": null
+		},
+		"releases": []
+	},
+	"organization": {
+		"orgname": "Tutorial"
+	}
+}
