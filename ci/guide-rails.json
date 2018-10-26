@@ -115,6 +115,12 @@
 						"code_analysis": null
 					}
 				},
+				"properties": [
+					{
+						"name": "sonar.java.binaries",
+						"value": "./target/*/***"
+					}
+				],
 				"deployment_strategy": {
 					"canary_watch_time": "",
 					"update_watch_time": "",
