@@ -52,6 +52,12 @@
 						"properties": null
 					},
 					{
+						"name": "create jar",
+						"definition": "create jar",
+						"command": "mvn install",
+						"properties": null
+					},
+					{
 						"name": "list",
 						"definition": "list",
 						"command": "ls -R",
