@@ -114,11 +114,11 @@
 				},
 				"packages": [
 					{
-						"name": "SimpleWorld",
+						"name": "HelloWorld",
 						"dependencies": [],
 						"downloads": [],
 						"files": [
-							"SimpleWorld*"
+							"HelloWorld*"
 						],
 						"package_install_command": "",
 						"installed_path": ""
@@ -204,7 +204,7 @@
 		],
 		"application_init": {
 			"command": "bin/start-service.sh",
-			"arguments": null
+			"arguments": []
 		},
 		"releases": []
 	},
