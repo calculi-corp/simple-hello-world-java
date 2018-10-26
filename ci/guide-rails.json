@@ -211,8 +211,8 @@
 					"serial": false
 				},
 				"application_init": {
-					"command": "",
-					"arguments": null
+					"command": "bin/start-service.sh",
+					"arguments": []
 				},
 				"instance_tags": [
 					{
