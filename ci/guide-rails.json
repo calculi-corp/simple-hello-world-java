@@ -114,11 +114,11 @@
 				},
 				"packages": [
 					{
-						"name": "((application.name))",
+						"name": "SimpleWorld",
 						"dependencies": [],
 						"downloads": [],
 						"files": [
-							"((application.name))*"
+							"SimpleWorld*"
 						],
 						"package_install_command": "",
 						"installed_path": ""
