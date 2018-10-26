@@ -60,7 +60,7 @@
 					{
 						"name": "build",
 						"definition": "build",
-						"command": "mvn install",
+						"command": "mvn compile",
 						"properties": []
 					},
 					{
