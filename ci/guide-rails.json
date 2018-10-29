@@ -54,7 +54,7 @@
 					{
 						"name": "create jar",
 						"definition": "create jar",
-						"command": "mvn install",
+						"command": "mvn package",
 						"properties": null
 					},
 					{
