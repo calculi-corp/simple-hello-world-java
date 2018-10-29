@@ -203,6 +203,28 @@
 						"code_analysis": null
 					}
 				},
+				"properties": [
+					{
+						"name": "consul.tag",
+						"value": "((application.shortsha))"
+					},
+					{
+						"name": "consul.domain",
+						"value": "consul"
+					},
+					{
+						"name": "consul.environment",
+						"value": "DEV"
+					},
+					{
+						"name": "consul.datacenter",
+						"value": "dc1"
+					},
+					{
+						"name": "consul.servicename",
+						"value": "((application.name))-INT-((application.branch))"
+					}
+				],
 				"deployment_strategy": {
 					"canaries": 1,
 					"max_in_flight": 1,
