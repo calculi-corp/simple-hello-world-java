@@ -222,7 +222,7 @@
 					},
 					{
 						"name": "consul.servicename",
-						"value": "((application.name))-INT-((application.branch))"
+						"value": "((application.name))-INT-((application.branch))-((application.shortsha))"
 					}
 				],
 				"deployment_strategy": {
