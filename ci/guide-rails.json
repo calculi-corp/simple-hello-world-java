@@ -79,7 +79,7 @@
 							"publish": true,
 							"properties": []
 						},
-						"delete_instances": true
+						"delete_instances": false
 					},
 					"on_success": {
 						"notifications": [
@@ -180,7 +180,7 @@
 							}
 						],
 						"code_analysis": null,
-						"delete_instances": true
+						"delete_instances": false
 					},
 					"on_success": {
 						"notifications": [
@@ -344,7 +344,7 @@
 					"publish": true,
 					"properties": []
 				},
-				"delete_instances": true
+				"delete_instances": false
 			},
 			"on_success": {
 				"notifications": [
