@@ -150,10 +150,8 @@
 								"name": "jdk-8u181-linux-x64.tar.gz"
 							}
 						],
-						"files": [
-							"jdk-8u181-linux-x64.tar.gz"
-						],
-						"package_install_command": "tar xzf jdk/jdk-8u181-linux-x64.tar.gz\\n cp -Rf * ${BOSH_INSTALL_TARGET}/",
+						"files": [],
+						"package_install_command": "tar xzf jdk/jdk-8u181-linux-x64.tar.gz\n cp -Rf * ${BOSH_INSTALL_TARGET}/",
 						"installed_path": ""
 					}
 				],
@@ -251,6 +249,10 @@
 					"command": "bin/start-service.sh",
 					"arguments": []
 				},
+				"package_dependencies": [
+					"jdk",
+					"HelloWorld"
+				],
 				"instance_tags": [
 					{
 						"name": "application.name",
