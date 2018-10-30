@@ -248,7 +248,7 @@
 						"number_of_instances": 1,
 						"persistent_disk_type": "",
 						"vm_type": "default",
-						"os_type": "linux",
+						"os_type": "default",
 						"networks": [
 							"((deploy.target.network.integration))"
 						],
