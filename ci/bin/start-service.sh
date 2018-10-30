@@ -1,7 +1,7 @@
 java -jar ${PKG_BASE_DIR}/${APPLICATION_NAME}/HelloWorld-0.0.2-SNAPSHOT.jar
 echo "Starting application"
 while [ $count -ge 0 ]; do
-    success=$(curl -s http://localhost:8082/HelloWorldExample/hello
+    success=$(curl -s http://localhost:8082/HelloWorldExample/hello)
     if [ $? -eq 0 ]; then
         break
     fi
