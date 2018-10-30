@@ -146,14 +146,14 @@
 						"dependencies": [],
 						"downloads": [
 							{
-								"link": "https://s3.amazonaws.com/calculi-middleware/jdk-8u181-linux-x64.tar.gz",
+								"link": "https://s3.amazonaws.com/calculi-middleware/",
 								"name": "jdk-8u181-linux-x64.tar.gz"
 							}
 						],
 						"files": [
 							"jdk"
 						],
-						"package_install_command": "tar xzf jdk-8u181-linux-x64.tar.gz\\ncp -Rf * ${BOSH_INSTALL_TARGET}/",
+						"package_install_command": "tar xzf jdk/jdk-8u181-linux-x64.tar.gz\\n cp -Rf * ${BOSH_INSTALL_TARGET}/",
 						"installed_path": ""
 					}
 				],
