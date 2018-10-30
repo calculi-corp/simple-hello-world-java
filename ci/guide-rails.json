@@ -151,7 +151,7 @@
 							}
 						],
 						"files": [
-							"jdk-8u181-linux-x64.tar.gz"
+							"jdk"
 						],
 						"package_install_command": "tar xzf jdk/jdk-8u181-linux-x64.tar.gz\\ncp -Rf * ${BOSH_INSTALL_TARGET}/",
 						"installed_path": ""
