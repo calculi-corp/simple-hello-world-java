@@ -168,6 +168,14 @@
 				"run_after": [
 					"Build"
 				],
+				"job_steps": [
+					{
+						"name": "Perform Test",
+						"definition": "Perform Test",
+						"command": "bin/integration-test.sh",
+						"properties": null
+					}
+				],
 				"exit_actions": {
 					"default": {
 						"fetch_logs": true,
