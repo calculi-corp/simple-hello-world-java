@@ -1,6 +1,6 @@
 export JAVA_HOME=/var/vcap/packages/jdk/jdk1.8.0_181
 export PATH=$PATH:$JAVA_HOME/bin
-ll -R
+ls -lR
 java -jar ${PKG_BASE_DIR}/${APPLICATION_NAME}.jar
 echo "Starting application"
 while [ $count -ge 0 ]; do
