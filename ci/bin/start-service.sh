@@ -1,8 +1,9 @@
 export JAVA_HOME=/var/vcap/packages/jdk/jdk1.8.0_181
 export PATH=$PATH:$JAVA_HOME/bin
 ls -lR
-java -jar ${PKG_BASE_DIR}/HelloWorld/HelloWorld-0.0.1-SNAPSHOT}.jar
+java -jar ${PKG_BASE_DIR}/HelloWorld/HelloWorld-0.0.1-SNAPSHOT.jar
 echo "Starting application"
+count=5
 while [ $count -ge 0 ]; do
     success=$(curl -s http://localhost:8082/HelloWorldExample/hello)
     if [ $? -eq 0 ]; then
