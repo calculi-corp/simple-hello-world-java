@@ -1,5 +1,6 @@
 export JAVA_HOME=/var/vcap/packages/jdk/jdk1.8.0_181
 export PATH=$PATH:$JAVA_HOME/bin
+ls -R
 java -jar ${PKG_BASE_DIR}/${APPLICATION_NAME}/HelloWorld-0.0.2-SNAPSHOT.jar
 echo "Starting application"
 while [ $count -ge 0 ]; do
