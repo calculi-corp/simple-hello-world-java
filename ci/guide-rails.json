@@ -40,15 +40,15 @@
 						"properties": []
 					},
 					{
-						"name": "build",
-						"definition": "build",
+						"name": "Build",
+						"definition": "Build",
 						"command": "mvn compile",
 						"properties": []
 					},
 					{
 						"name": "test",
 						"definition": "test",
-						"command": "mvn test",
+						"command": "mvn cobertura:cobertura  -Dcobertura.report.format=xml  -Dcobertura.aggregate=true install -e",
 						"properties": null
 					},
 					{
