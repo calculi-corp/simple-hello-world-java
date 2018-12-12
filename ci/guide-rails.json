@@ -5,24 +5,21 @@
 	"application": {
 		"name": "simple-hello-world-java",
 		"language": "JAVA",
-		"scm": {
-			"provider": "SCM_BITBUCKET_SERVER",
-			"URL": "ssh://git@git.calculi.com:7999/exp/simple-hello-world-java.git"
-		},
+		"scm": {},
 		"artifact_store": {
 			"type": "s3",
 			"repositories": [
 				{
 					"category": "rc-packaging",
-					"bucket": "calculi-guide-rails"
+					"bucket": "guide-rails-calculi-rc"
 				},
 				{
 					"category": "final-packaging",
-					"bucket": "calculi-guide-rails"
+					"bucket": "guide-rails-calculi-final"
 				},
 				{
 					"category": "logs",
-					"bucket": "guide-rails-application-logs"
+					"bucket": "guide-rails-calculi-logs"
 				}
 			]
 		}
