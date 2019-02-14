@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 export JAVA_HOME=/var/vcap/packages/jdk/jdk1.8.0_181
 export PATH=$PATH:$JAVA_HOME/bin
 ls -lR
