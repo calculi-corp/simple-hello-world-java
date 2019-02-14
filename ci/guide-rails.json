@@ -187,6 +187,12 @@
 						"definition": "Perform Test",
 						"command": "bin/integration-test.sh",
 						"properties": null
+					},
+					{
+						"name": "echo",
+						"definition": "echo",
+						"command": "echo \"I'm working!\"",
+						"properties": null
 					}
 				],
 				"exit_actions": {
