@@ -115,7 +115,8 @@
 				"properties": [
 					{
 						"name": "sonar.java.binaries",
-						"value": "./target/*/***"
+						"value": "./target/*/***",
+						"when": "0001-01-01T00:00:00Z"
 					}
 				],
 				"deployment_strategy": {
@@ -155,9 +156,24 @@
 				"instance_tags": [
 					{
 						"name": "application.name",
-						"value": "((application.name))"
+						"value": "((application.name))",
+						"when": "0001-01-01T00:00:00Z"
 					}
-				]
+				],
+				"post_deployment_actions": {
+					"instances": null,
+					"loadbalanced": false,
+					"loadbalancer": {
+						"TargetGroupName": "",
+						"TargetGroupPort": 0,
+						"TargetGroupProtocol": "",
+						"TargetType": "",
+						"VPCID": "",
+						"HealthCheckEnabled": false,
+						"HealthCheckPort": "",
+						"UnhealthyThresholdCount": 0
+					}
+				}
 			},
 			{
 				"name": "Integration",
@@ -224,23 +240,28 @@
 				"properties": [
 					{
 						"name": "consul.tag",
-						"value": "((application.shortsha))"
+						"value": "((application.shortsha))",
+						"when": "0001-01-01T00:00:00Z"
 					},
 					{
 						"name": "consul.domain",
-						"value": "consul"
+						"value": "consul",
+						"when": "0001-01-01T00:00:00Z"
 					},
 					{
 						"name": "consul.environment",
-						"value": "DEV"
+						"value": "DEV",
+						"when": "0001-01-01T00:00:00Z"
 					},
 					{
 						"name": "consul.datacenter",
-						"value": "dc1"
+						"value": "dc1",
+						"when": "0001-01-01T00:00:00Z"
 					},
 					{
 						"name": "consul.servicename",
-						"value": "((application.name))-INT-((application.branch))-((application.shortsha))"
+						"value": "((application.name))-INT-((application.branch))-((application.shortsha))",
+						"when": "0001-01-01T00:00:00Z"
 					}
 				],
 				"deployment_strategy": {
@@ -251,8 +272,13 @@
 					"serial": false
 				},
 				"application_init": {
-					"command": "bin/start-service.sh",
-					"arguments": []
+					"command": "",
+					"arguments": null
+				},
+				"process": {
+					"init": {
+						"command": "bin/start-service.sh"
+					}
 				},
 				"package_dependencies": [
 					"jdk",
@@ -261,7 +287,8 @@
 				"instance_tags": [
 					{
 						"name": "application.name",
-						"value": "((application.name))"
+						"value": "((application.name))",
+						"when": "0001-01-01T00:00:00Z"
 					}
 				],
 				"instance_groups": [
@@ -296,31 +323,38 @@
 								"properties": [
 									{
 										"name": "consul.servicename",
-										"value": "((consul.servicename))"
+										"value": "((consul.servicename))",
+										"when": "0001-01-01T00:00:00Z"
 									},
 									{
 										"name": "consul.environment",
-										"value": "((consul.environment))"
+										"value": "((consul.environment))",
+										"when": "0001-01-01T00:00:00Z"
 									},
 									{
 										"name": "consul.datacenter",
-										"value": "((consul.datacenter))"
+										"value": "((consul.datacenter))",
+										"when": "0001-01-01T00:00:00Z"
 									},
 									{
 										"name": "consul.server",
-										"value": "false"
+										"value": "false",
+										"when": "0001-01-01T00:00:00Z"
 									},
 									{
 										"name": "consul.joinservers",
-										"value": "((consul.joinservers))"
+										"value": "((consul.joinservers))",
+										"when": "0001-01-01T00:00:00Z"
 									},
 									{
 										"name": "calculi.intermediate.cert",
-										"value": "grsecret:tls.cert"
+										"value": "grsecret:tls.cert",
+										"when": "0001-01-01T00:00:00Z"
 									},
 									{
 										"name": "calculi.intermediate.key",
-										"value": "grsecret:tls.key"
+										"value": "grsecret:tls.key",
+										"when": "0001-01-01T00:00:00Z"
 									}
 								],
 								"deployment_strategy": {
@@ -331,7 +365,21 @@
 							}
 						]
 					}
-				]
+				],
+				"post_deployment_actions": {
+					"instances": null,
+					"loadbalanced": false,
+					"loadbalancer": {
+						"TargetGroupName": "",
+						"TargetGroupPort": 0,
+						"TargetGroupProtocol": "",
+						"TargetType": "",
+						"VPCID": "",
+						"HealthCheckEnabled": false,
+						"HealthCheckPort": "",
+						"UnhealthyThresholdCount": 0
+					}
+				}
 			}
 		],
 		"exit_actions": {
@@ -397,8 +445,13 @@
 			}
 		],
 		"application_init": {
-			"command": "bin/start-service.sh",
-			"arguments": []
+			"command": "",
+			"arguments": null
+		},
+		"process": {
+			"init": {
+				"command": "bin/start-service.sh"
+			}
 		},
 		"releases": [
 			{
