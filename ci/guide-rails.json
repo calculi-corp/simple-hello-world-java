@@ -178,7 +178,6 @@
 			{
 				"name": "Integration",
 				"segment_type": "integration",
-				"persistent": true,
 				"run_after": [
 					"Build"
 				],
@@ -267,7 +266,7 @@
 				],
 				"instance_groups": [
 					{
-						"name": "HelloWorld",
+						"name": "((application.name))",
 						"number_of_instances": 1,
 						"persistent_disk_type": "",
 						"vm_type": "default",
