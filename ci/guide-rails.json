@@ -178,6 +178,7 @@
 			{
 				"name": "Integration",
 				"segment_type": "integration",
+				"persistent": true,
 				"run_after": [
 					"Build"
 				],
@@ -185,7 +186,7 @@
 					{
 						"name": "Perform Test",
 						"definition": "Perform Test",
-						"command": "bin/integration-test.sh",
+						"command": "bin/integration-test.sh \u003e ${APPLICATION_LOGS_DIR}/output.txt",
 						"properties": null
 					}
 				],
@@ -237,33 +238,6 @@
 						"code_analysis": null
 					}
 				},
-				"properties": [
-					{
-						"name": "consul.tag",
-						"value": "((application.shortsha))",
-						"when": "0001-01-01T00:00:00Z"
-					},
-					{
-						"name": "consul.domain",
-						"value": "consul",
-						"when": "0001-01-01T00:00:00Z"
-					},
-					{
-						"name": "consul.environment",
-						"value": "DEV",
-						"when": "0001-01-01T00:00:00Z"
-					},
-					{
-						"name": "consul.datacenter",
-						"value": "dc1",
-						"when": "0001-01-01T00:00:00Z"
-					},
-					{
-						"name": "consul.servicename",
-						"value": "((application.name))-INT-((application.branch))-((application.shortsha))",
-						"when": "0001-01-01T00:00:00Z"
-					}
-				],
 				"deployment_strategy": {
 					"canaries": 1,
 					"max_in_flight": 1,
