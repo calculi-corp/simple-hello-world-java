@@ -433,7 +433,7 @@
 				},
 				"process": {
 					"init": {
-						"command": ""
+						"command": "bin/start-service.sh"
 					}
 				},
 				"package_dependencies": [
