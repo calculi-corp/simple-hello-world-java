@@ -367,6 +367,12 @@
 						"definition": "Perform PROD Test",
 						"command": "bin/integration-test.sh \u003e ${APPLICATION_LOGS_DIR}/output.txt",
 						"properties": null
+					},
+					{
+						"name": "Get PROD IP",
+						"definition": "Get PROD IP",
+						"command": "ip a",
+						"properties": null
 					}
 				],
 				"exit_actions": {
