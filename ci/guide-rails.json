@@ -185,13 +185,7 @@
 					{
 						"name": "Perform Test",
 						"definition": "Perform Test",
-						"command": "bin/integration-test.sh",
-						"properties": null
-					},
-					{
-						"name": "echo",
-						"definition": "echo",
-						"command": "echo \"I'm working!\"",
+						"command": "bin/integration-test.sh \u003e ${APPLICATION_LOGS_DIR}/output.txt",
 						"properties": null
 					}
 				],
@@ -243,38 +237,11 @@
 						"code_analysis": null
 					}
 				},
-				"properties": [
-					{
-						"name": "consul.tag",
-						"value": "((application.shortsha))",
-						"when": "0001-01-01T00:00:00Z"
-					},
-					{
-						"name": "consul.domain",
-						"value": "consul",
-						"when": "0001-01-01T00:00:00Z"
-					},
-					{
-						"name": "consul.environment",
-						"value": "DEV",
-						"when": "0001-01-01T00:00:00Z"
-					},
-					{
-						"name": "consul.datacenter",
-						"value": "dc1",
-						"when": "0001-01-01T00:00:00Z"
-					},
-					{
-						"name": "consul.servicename",
-						"value": "((application.name))-INT-((application.branch))-((application.shortsha))",
-						"when": "0001-01-01T00:00:00Z"
-					}
-				],
 				"deployment_strategy": {
 					"canaries": 1,
 					"max_in_flight": 1,
-					"canary_watch_time": "5000-30000",
-					"update_watch_time": "5000-30000",
+					"canary_watch_time": "120000-240000",
+					"update_watch_time": "120000-240000",
 					"serial": false
 				},
 				"application_init": {
@@ -299,7 +266,7 @@
 				],
 				"instance_groups": [
 					{
-						"name": "HelloWorld",
+						"name": "((application.name))",
 						"number_of_instances": 1,
 						"persistent_disk_type": "",
 						"vm_type": "default",
