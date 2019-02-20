@@ -185,7 +185,7 @@
 					{
 						"name": "Perform Test",
 						"definition": "Perform Test",
-						"command": "mvn test \u003e ${TEST_LOGS_DIR}/tests.txt",
+						"command": "bin/integration-test.sh \u003e ${TEST_LOGS_DIR}/tests.txt",
 						"properties": null
 					}
 				],
