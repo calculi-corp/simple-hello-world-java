@@ -45,7 +45,7 @@
 					{
 						"name": "test",
 						"definition": "test",
-						"command": "mvn test",
+						"command": "mvn surefire-report:report ",
 						"properties": null
 					},
 					{
