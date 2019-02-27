@@ -45,7 +45,7 @@
 					{
 						"name": "test",
 						"definition": "test",
-						"command": "mvn cobertura:cobertura  -Dcobertura.report.format=xml  -Dcobertura.aggregate=true install -e",
+						"command": "mvn test",
 						"properties": null
 					},
 					{
