@@ -13,5 +13,9 @@ public class HelloWorldApplicationTests {
 	public void contextLoads() {
 		//Test
 	}
+	@Test
+	public void exampleTest() {
+            assertEquals(2, 1 + 1);
+        }
 
 }
