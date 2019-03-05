@@ -11,6 +11,11 @@ public class HelloWorldApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		//Test
+		// Test
+	}
+
+	@Test
+	public void exampleTest() {
+		// Test
 	}
 }
