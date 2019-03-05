@@ -11,15 +11,15 @@
 			"repositories": [
 				{
 					"category": "rc-packaging",
-					"bucket": "guide-rails-calculi-rc"
+					"bucket": "guide-rails-westrock-rc"
 				},
 				{
 					"category": "final-packaging",
-					"bucket": "guide-rails-calculi-final"
+					"bucket": "guide-rails-westrock-final"
 				},
 				{
 					"category": "logs",
-					"bucket": "guide-rails-calculi-logs"
+					"bucket": "guide-rails-westrock-logs"
 				}
 			]
 		}
@@ -31,16 +31,16 @@
 				"segment_type": "build",
 				"job_steps": [
 					{
-						"name": "Print Environment",
-						"definition": "logs relevant environment information",
-						"command": "printenv | sort",
+						"name": "Print Env",
+						"definition": "Print Environment",
+						"command": "printenv | sort\n",
 						"properties": []
 					},
 					{
-						"name": "Build",
-						"definition": "Build",
+						"name": "build",
+						"definition": "build",
 						"command": "mvn compile",
-						"properties": []
+						"properties": null
 					},
 					{
 						"name": "test",
@@ -55,8 +55,8 @@
 						"properties": null
 					},
 					{
-						"name": "list",
-						"definition": "list",
+						"name": "list ",
+						"definition": "list ",
 						"command": "ls -R",
 						"properties": null
 					}
@@ -64,61 +64,13 @@
 				"exit_actions": {
 					"default": {
 						"fetch_logs": true,
-						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": false,
-								"to": null,
-								"message": ""
-							}
-						],
 						"code_analysis": {
 							"publish": true,
-							"properties": []
+							"properties": null
 						},
-						"delete_instances": false
-					},
-					"on_success": {
-						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": false,
-								"to": null,
-								"message": ""
-							}
-						],
-						"code_analysis": null
-					},
-					"on_failure": {
-						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": false,
-								"to": null,
-								"message": ""
-							}
-						],
-						"code_analysis": null
-					},
-					"on_abort": {
-						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": false,
-								"to": null,
-								"message": ""
-							}
-						],
-						"code_analysis": null
+						"delete_instances": true
 					}
 				},
-				"properties": [
-					{
-						"name": "sonar.java.binaries",
-						"value": "./target/*/***",
-						"when": "0001-01-01T00:00:00Z"
-					}
-				],
 				"deployment_strategy": {
 					"canary_watch_time": "",
 					"update_watch_time": "",
@@ -183,8 +135,8 @@
 				],
 				"job_steps": [
 					{
-						"name": "Perform Test",
-						"definition": "Perform Test",
+						"name": "perform test",
+						"definition": "perform test",
 						"command": "bin/integration-test.sh \u003e ${TEST_LOGS_DIR}/tests.txt",
 						"properties": null
 					}
@@ -192,48 +144,19 @@
 				"exit_actions": {
 					"default": {
 						"fetch_logs": true,
-						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": false,
-								"to": null,
-								"message": ""
-							}
-						],
-						"code_analysis": null,
-						"delete_instances": false
+						"code_analysis": {
+							"publish": true,
+							"properties": []
+						},
+						"delete_instances": true
 					},
 					"on_success": {
-						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": false,
-								"to": null,
-								"message": ""
-							}
-						],
 						"code_analysis": null
 					},
 					"on_failure": {
-						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": false,
-								"to": null,
-								"message": ""
-							}
-						],
 						"code_analysis": null
 					},
 					"on_abort": {
-						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": false,
-								"to": null,
-								"message": ""
-							}
-						],
 						"code_analysis": null
 					}
 				},
@@ -254,8 +177,8 @@
 					}
 				},
 				"package_dependencies": [
-					"jdk",
-					"HelloWorld"
+					"HelloWorld",
+					"jdk"
 				],
 				"instance_tags": [
 					{
@@ -331,8 +254,8 @@
 									}
 								],
 								"deployment_strategy": {
-									"canary_watch_time": "2000-60000",
-									"update_watch_time": "2000-60000",
+									"canary_watch_time": "",
+									"update_watch_time": "",
 									"serial": false
 								}
 							}
@@ -363,14 +286,14 @@
 				],
 				"job_steps": [
 					{
-						"name": "Perform PROD Test",
-						"definition": "Perform PROD Test",
+						"name": "perform prod test",
+						"definition": "perform prod test",
 						"command": "bin/integration-test.sh \u003e ${APPLICATION_LOGS_DIR}/output.txt",
 						"properties": null
 					},
 					{
-						"name": "Get PROD IP",
-						"definition": "Get PROD IP",
+						"name": "get prod IP",
+						"definition": "get prod IP",
 						"command": "ip a",
 						"properties": null
 					}
@@ -378,50 +301,21 @@
 				"exit_actions": {
 					"default": {
 						"fetch_logs": true,
-						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": false,
-								"to": null,
-								"message": ""
-							}
-						],
-						"code_analysis": null,
+						"code_analysis": {
+							"publish": true,
+							"properties": []
+						},
 						"delete_instances": false
 					},
 					"on_success": {
-						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": false,
-								"to": null,
-								"message": ""
-							}
-						],
 						"code_analysis": null,
 						"delete_instances": false
 					},
 					"on_failure": {
-						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": false,
-								"to": null,
-								"message": ""
-							}
-						],
 						"code_analysis": null,
 						"delete_instances": false
 					},
 					"on_abort": {
-						"notifications": [
-							{
-								"type": "slack",
-								"send_notification": false,
-								"to": null,
-								"message": ""
-							}
-						],
 						"code_analysis": null,
 						"delete_instances": false
 					}
@@ -430,7 +324,7 @@
 					"canaries": 1,
 					"max_in_flight": 1,
 					"canary_watch_time": "120000-240000",
-					"update_watch_time": "124000-240000",
+					"update_watch_time": "120000-240000",
 					"serial": false
 				},
 				"application_init": {
@@ -528,7 +422,6 @@
 						]
 					}
 				],
-				"gated": true,
 				"post_deployment_actions": {
 					"instances": null,
 					"loadbalanced": false,
@@ -548,55 +441,23 @@
 		"exit_actions": {
 			"default": {
 				"fetch_logs": true,
-				"notifications": [
-					{
-						"type": "slack",
-						"send_notification": false,
-						"to": null,
-						"message": ""
-					}
-				],
 				"code_analysis": {
 					"publish": true,
 					"properties": []
 				},
-				"delete_instances": false
+				"delete_instances": true
 			},
 			"on_success": {
-				"notifications": [
-					{
-						"type": "slack",
-						"send_notification": false,
-						"to": null,
-						"message": ""
-					}
-				],
 				"code_analysis": null
 			},
 			"on_failure": {
-				"notifications": [
-					{
-						"type": "slack",
-						"send_notification": false,
-						"to": null,
-						"message": ""
-					}
-				],
 				"code_analysis": null
 			},
 			"on_abort": {
-				"notifications": [
-					{
-						"type": "slack",
-						"send_notification": false,
-						"to": null,
-						"message": ""
-					}
-				],
 				"code_analysis": null
 			}
 		},
-		"default_properties": null,
+		"default_properties": [],
 		"deployment_files": [
 			{
 				"source_path": "ci/bin/start-service.sh",

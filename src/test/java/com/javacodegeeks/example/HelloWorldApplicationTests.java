@@ -13,5 +13,4 @@ public class HelloWorldApplicationTests {
 	public void contextLoads() {
 		//Test
 	}
-
 }
