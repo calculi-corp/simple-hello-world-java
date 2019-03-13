@@ -10,7 +10,7 @@ public class HelloWorldApplication {
 		SpringApplication.run(HelloWorldApplication.class, args);
 	}
 
-	public static void badCode() {
+	public static boolean badCode() {
 		boolean test;
 		test = false;
 		// duplicate the follwing bad code so we some duplication metrics
@@ -29,6 +29,7 @@ public class HelloWorldApplication {
 		}
 		int day = 5;
 		String dayString;
+		dayString = "";
 		// switch statement with int data type
 		switch (day) {
 		case 1:
@@ -52,10 +53,16 @@ public class HelloWorldApplication {
 		case 7:
 			dayString = "Sunday";
 			break;
-		default:
-			dayString = "Invalid day";
-			break;
+		// no default, should trigger code issue
 		}
 		System.out.println(dayString);
+		
+		// multiple returns...bad idea!
+		if (test) {
+			return true;
+		} else {
+			return false;
+		}
 	}
+
 }
