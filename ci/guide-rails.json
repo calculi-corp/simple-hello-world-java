@@ -11,15 +11,15 @@
 			"repositories": [
 				{
 					"category": "rc-packaging",
-					"bucket": "guide-rails-westrock-rc"
+					"bucket": "guide-rails-calculi-rc"
 				},
 				{
 					"category": "final-packaging",
-					"bucket": "guide-rails-westrock-final"
+					"bucket": "guide-rails-calculi-final"
 				},
 				{
 					"category": "logs",
-					"bucket": "guide-rails-westrock-logs"
+					"bucket": "guide-rails-calculi-logs"
 				}
 			]
 		}
@@ -45,7 +45,7 @@
 					{
 						"name": "test",
 						"definition": "test",
-						"command": "mvn surefire-report:report \ncat ./target/surefire-reports/TEST-com.javacodegeeks.example.HelloWorldApplicationTests.xml \ncp ./target/surefire-reports/TEST-com.javacodegeeks.example.HelloWorldApplicationTests.xml ./test.xml",
+						"command": "mvn surefire-report:report \ncat ./target/surefire-reports/TEST-com.javacodegeeks.example.HelloWorldApplicationTests.xml \ncp ./target/surefire-reports/TEST-com.javacodegeeks.example.HelloWorldApplicationTests.xml ./test.xml\nmvn cobertura:cobertura  -Dcobertura.report.format=xml  -Dcobertura.aggregate=true install -e",
 						"properties": null
 					},
 					{
