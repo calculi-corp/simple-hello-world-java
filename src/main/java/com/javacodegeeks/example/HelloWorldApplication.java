@@ -89,4 +89,23 @@ public class HelloWorldApplication {
 		return resultSet.next();
 	  }
 
+	  // code below should trigger security violations too
+	  public class Reflection {
+
+		public void run(java.lang.ClassLoader loader, String className, String methodName, String fieldName,
+				Class<?> parameterTypes)
+				throws NoSuchMethodException, SecurityException, ClassNotFoundException, NoSuchFieldException {
+	
+			Class<?> clazz = Class.forName(className); // Questionable
+			clazz.getMethod(methodName, parameterTypes); // Questionable
+			clazz.getMethods(); // Questionable
+			clazz.getField(fieldName); // Questionable
+			clazz.getFields(); // Questionable
+			clazz.getDeclaredField(fieldName); // Questionable
+			clazz.getDeclaredFields(); // Questionable
+			clazz.getDeclaredClasses(); // Questionable
+			loader.loadClass(className); // Questionable
+		}
+	}
+
 }
