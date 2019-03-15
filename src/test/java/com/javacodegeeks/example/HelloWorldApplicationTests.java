@@ -18,4 +18,8 @@ public class HelloWorldApplicationTests {
 	public void exampleTest() {
 		// Test
 	}
+	@Test
+	public void badCode () {
+		// Test
+	}
 }

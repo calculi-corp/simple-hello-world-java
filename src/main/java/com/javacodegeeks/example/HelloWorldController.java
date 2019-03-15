@@ -3,11 +3,13 @@ package com.javacodegeeks.example;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 public class HelloWorldController {
+	String companyName = System.getenv("CUSTOMER.NAME");
 
 	@GetMapping("/hello")
 	public String sayHello() {
-		return "Hello Westrock, Welcome To Guide-Rails®!";
+		return "Hello" + companyName + " Welcome To Guide-Rails®!";
 	}
 }
