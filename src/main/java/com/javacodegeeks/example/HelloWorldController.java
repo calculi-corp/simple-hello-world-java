@@ -10,6 +10,6 @@ public class HelloWorldController {
 
 	@GetMapping("/hello")
 	public String sayHello() {
-		return "Hello" + companyName + " Welcome To Guide-Rails®!";
+		return "Hello " + companyName + " Welcome To Guide-Rails®!";
 	}
 }
