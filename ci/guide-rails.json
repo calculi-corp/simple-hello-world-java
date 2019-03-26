@@ -590,7 +590,7 @@
 			},
 			{
 				"source_path": "ci/bin/integration-test.sh",
-				"target_path": "ci/bin/integration-test.sh"
+				"target_path": "bin/integration-test.sh"
 			}
 		],
 		"application_init": {
