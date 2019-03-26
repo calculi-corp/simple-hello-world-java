@@ -51,7 +51,7 @@
 					{
 						"name": "copy-jar",
 						"definition": "copy-jar",
-						"command": "cp -f target/((application.name))-*-SNAPSHOT.jar .",
+						"command": "cp -f target/*-*-SNAPSHOT.jar .",
 						"properties": null
 					}
 				],
