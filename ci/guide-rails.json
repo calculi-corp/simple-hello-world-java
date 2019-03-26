@@ -3,7 +3,7 @@
 		"version": 1
 	},
 	"application": {
-		"name": "simple-hello-world-java",
+		"name": "HelloWorld",
 		"language": "JAVA_MAVEN",
 		"scm": {},
 		"artifact_store": {
@@ -51,7 +51,7 @@
 					{
 						"name": "copy-jar",
 						"definition": "copy-jar",
-						"command": "cp -f target/*-*-SNAPSHOT.jar .",
+						"command": "cp -f target/((application.name))-*-SNAPSHOT.jar .",
 						"properties": null
 					}
 				],
