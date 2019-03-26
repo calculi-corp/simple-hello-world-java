@@ -11,15 +11,15 @@
 			"repositories": [
 				{
 					"category": "rc-packaging",
-					"bucket": "guide-rails-rainforest-web-services-rc"
+					"bucket": "guide-rails-calculi-rc"
 				},
 				{
 					"category": "final-packaging",
-					"bucket": "guide-rails-rainforest-web-services-final"
+					"bucket": "guide-rails-calculi-final"
 				},
 				{
 					"category": "logs",
-					"bucket": "guide-rails-rainforest-web-services-logs"
+					"bucket": "guide-rails-calculi-logs"
 				}
 			]
 		}
