@@ -4,22 +4,21 @@
 	},
 	"application": {
 		"name": "simple-hello-world-java",
-		"language": "JAVA",
-		"scm": {},
+		"language": "JAVA_MAVEN",
 		"artifact_store": {
 			"type": "s3",
 			"repositories": [
 				{
 					"category": "rc-packaging",
-					"bucket": "guide-rails-rainforest-web-services-rc"
+					"bucket": "guide-rails-calculi-rc"
 				},
 				{
 					"category": "final-packaging",
-					"bucket": "guide-rails-rainforest-web-services-final"
+					"bucket": "guide-rails-calculi-final"
 				},
 				{
 					"category": "logs",
-					"bucket": "guide-rails-rainforest-web-services-logs"
+					"bucket": "guide-rails-calculi-logs"
 				}
 			]
 		}
@@ -69,6 +68,15 @@
 							"properties": null
 						},
 						"delete_instances": true
+					},
+					"on_success": {
+						"code_analysis": null
+					},
+					"on_failure": {
+						"code_analysis": null
+					},
+					"on_abort": {
+						"code_analysis": null
 					}
 				},
 				"deployment_strategy": {
@@ -144,19 +152,28 @@
 					"default": {
 						"fetch_logs": true,
 						"code_analysis": {
-							"publish": true,
-							"properties": []
+							"publish": false,
+							"properties": null
 						},
 						"delete_instances": true
 					},
 					"on_success": {
-						"code_analysis": null
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						}
 					},
 					"on_failure": {
-						"code_analysis": null
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						}
 					},
 					"on_abort": {
-						"code_analysis": null
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						}
 					}
 				},
 				"deployment_strategy": {
@@ -293,21 +310,30 @@
 					"default": {
 						"fetch_logs": true,
 						"code_analysis": {
-							"publish": true,
-							"properties": []
+							"publish": false,
+							"properties": null
 						},
 						"delete_instances": false
 					},
 					"on_success": {
-						"code_analysis": null,
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						},
 						"delete_instances": false
 					},
 					"on_failure": {
-						"code_analysis": null,
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						},
 						"delete_instances": false
 					},
 					"on_abort": {
-						"code_analysis": null,
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						},
 						"delete_instances": false
 					}
 				},
