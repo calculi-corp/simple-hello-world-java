@@ -132,7 +132,8 @@
 						"HealthCheckPort": "",
 						"UnhealthyThresholdCount": 0
 					}
-				}
+				},
+				"cache_info": {}
 			},
 			{
 				"name": "Integration",
@@ -283,7 +284,8 @@
 						"HealthCheckPort": "",
 						"UnhealthyThresholdCount": 0
 					}
-				}
+				},
+				"cache_info": {}
 			},
 			{
 				"name": "Production",
@@ -444,7 +446,8 @@
 						"HealthCheckPort": "",
 						"UnhealthyThresholdCount": 0
 					}
-				}
+				},
+				"cache_info": {}
 			}
 		],
 		"exit_actions": {
