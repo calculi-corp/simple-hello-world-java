@@ -30,12 +30,6 @@
 				"segment_type": "build",
 				"job_steps": [
 					{
-						"name": "Print Env",
-						"definition": "Print Environment",
-						"command": "printenv | sort\n",
-						"properties": []
-					},
-					{
 						"name": "build",
 						"definition": "build",
 						"command": "mvn compile",
