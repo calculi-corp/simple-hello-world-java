@@ -210,6 +210,7 @@
 						"availability_zones": [
 							"((deploy.target.zone.integration))"
 						],
+						"deployment_strategy": {},
 						"dependencies": [
 							{
 								"name": "consul",
@@ -255,12 +256,7 @@
 										"name": "calculi.intermediate.key",
 										"value": "grsecret:tls.key"
 									}
-								],
-								"deployment_strategy": {
-									"canary_watch_time": "",
-									"update_watch_time": "",
-									"serial": false
-								}
+								]
 							}
 						]
 					}
@@ -372,6 +368,7 @@
 						"availability_zones": [
 							"((deploy.target.zone.production))"
 						],
+						"deployment_strategy": {},
 						"dependencies": [
 							{
 								"name": "consul",
@@ -417,12 +414,7 @@
 										"name": "calculi.intermediate.key",
 										"value": "grsecret:tls.key"
 									}
-								],
-								"deployment_strategy": {
-									"canary_watch_time": "",
-									"update_watch_time": "",
-									"serial": false
-								}
+								]
 							}
 						]
 					}
