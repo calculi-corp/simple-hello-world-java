@@ -103,7 +103,7 @@
 							}
 						],
 						"files": [],
-						"package_install_command": "tar xzf jdk/jdk-((jdk.version))-linux-x64.tar.gz\n cp -Rf * ${BOSH_INSTALL_TARGET}/",
+						"package_install_command": "tar xzf jdk/jdk-((jdk.version))-linux-x64.tar.gz\n cp -Rf jdk-((jdk.version))/* ${BOSH_INSTALL_TARGET}/",
 						"installed_path": ""
 					}
 				],
