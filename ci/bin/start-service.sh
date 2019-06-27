@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export JAVA_HOME=/var/vcap/packages/jdk/jdk1.8.0_181
+export JAVA_HOME=/var/vcap/packages/jdk/
 export PATH=$PATH:$JAVA_HOME/bin
 ls -lR
 java -jar ${PKG_BASE_DIR}/HelloWorld/HelloWorld-0.0.1-SNAPSHOT.jar
