@@ -98,12 +98,12 @@
 						"dependencies": [],
 						"downloads": [
 							{
-								"link": "https://s3.amazonaws.com/calculi-middleware/jdk-((jdk.version))-linux-x64.tar.gz",
-								"name": "jdk-((jdk.version))-linux-x64.tar.gz"
+								"link": "https://s3.amazonaws.com/calculi-middleware/jdk-((jdk.version))_linux-x64_bin.tar.gz",
+								"name": "jdk.tar.gz"
 							}
 						],
 						"files": [],
-						"package_install_command": "tar xzf jdk/jdk-((jdk.version))-linux-x64.tar.gz\n cp -Rf jdk-((jdk.version))/* ${BOSH_INSTALL_TARGET}/",
+						"package_install_command": "tar xzf jdk/jdk.tar.gz\n cp -Rf jdk-((jdk.version))/* ${BOSH_INSTALL_TARGET}/",
 						"installed_path": ""
 					}
 				],
