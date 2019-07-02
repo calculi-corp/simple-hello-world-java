@@ -328,7 +328,7 @@
 				},
 				"process": {
 					"init": {
-						"command": "bin/start-service.sh"
+						"command": "bin/start-service.sh "
 					}
 				},
 				"package_dependencies": [
@@ -464,7 +464,7 @@
 		},
 		"process": {
 			"init": {
-				"command": "bin/start-service.sh"
+				"command": ""
 			}
 		},
 		"releases": [
