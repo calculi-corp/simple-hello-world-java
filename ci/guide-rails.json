@@ -92,6 +92,19 @@
 						],
 						"package_install_command": "",
 						"installed_path": ""
+					},
+					{
+						"name": "jdk",
+						"dependencies": [],
+						"downloads": [
+							{
+								"link": "https://s3.amazonaws.com/calculi-middleware/jdk-((jdk.version))_linux-x64_bin.tar.gz",
+								"name": "jdk.tar.gz"
+							}
+						],
+						"files": [],
+						"package_install_command": "tar xzf jdk/jdk.tar.gz\\n cp -Rf jdk-((jdk.version))/* ${BOSH_INSTALL_TARGET}",
+						"installed_path": ""
 					}
 				],
 				"instance_tags": [
@@ -126,7 +139,7 @@
 					{
 						"name": "perform test",
 						"definition": "perform test",
-						"command": "",
+						"command": "bin/integration-test.sh \u003e ${TEST_LOGS_DIR}/tests.txt",
 						"properties": null
 					}
 				],
@@ -171,11 +184,12 @@
 				},
 				"process": {
 					"init": {
-						"command": ""
+						"command": "bin/start-service.sh"
 					}
 				},
 				"package_dependencies": [
-					"HelloWorld"
+					"HelloWorld",
+					"jdk"
 				],
 				"instance_tags": [
 					{
@@ -464,7 +478,7 @@
 		},
 		"process": {
 			"init": {
-				"command": ""
+				"command": "bin/start-service.sh"
 			}
 		},
 		"releases": [
