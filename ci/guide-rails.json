@@ -30,12 +30,6 @@
 				"segment_type": "build",
 				"job_steps": [
 					{
-						"name": "Print Env",
-						"definition": "Print Environment",
-						"command": "printenv | sort\n",
-						"properties": []
-					},
-					{
 						"name": "build",
 						"definition": "build",
 						"command": "mvn compile",
@@ -104,12 +98,12 @@
 						"dependencies": [],
 						"downloads": [
 							{
-								"link": "https://s3.amazonaws.com/calculi-middleware/jdk-8u181-linux-x64.tar.gz",
-								"name": "jdk-8u181-linux-x64.tar.gz"
+								"link": "https://s3.amazonaws.com/calculi-middleware/jdk-((jdk.version))_linux-x64_bin.tar.gz",
+								"name": "jdk.tar.gz"
 							}
 						],
 						"files": [],
-						"package_install_command": "tar xzf jdk/jdk-8u181-linux-x64.tar.gz\n cp -Rf * ${BOSH_INSTALL_TARGET}/",
+						"package_install_command": "tar xzf jdk/jdk.tar.gz\ncp -Rf jdk-((jdk.version))/* ${BOSH_INSTALL_TARGET}",
 						"installed_path": ""
 					}
 				],
@@ -132,7 +126,8 @@
 						"HealthCheckPort": "",
 						"UnhealthyThresholdCount": 0
 					}
-				}
+				},
+				"cache_info": {}
 			},
 			{
 				"name": "Integration",
@@ -215,6 +210,7 @@
 						"availability_zones": [
 							"((deploy.target.zone.integration))"
 						],
+						"deployment_strategy": {},
 						"dependencies": [
 							{
 								"name": "consul",
@@ -260,12 +256,7 @@
 										"name": "calculi.intermediate.key",
 										"value": "grsecret:tls.key"
 									}
-								],
-								"deployment_strategy": {
-									"canary_watch_time": "",
-									"update_watch_time": "",
-									"serial": false
-								}
+								]
 							}
 						]
 					}
@@ -283,7 +274,8 @@
 						"HealthCheckPort": "",
 						"UnhealthyThresholdCount": 0
 					}
-				}
+				},
+				"cache_info": {}
 			},
 			{
 				"name": "Production",
@@ -350,7 +342,7 @@
 				},
 				"process": {
 					"init": {
-						"command": "bin/start-service.sh"
+						"command": "bin/start-service.sh "
 					}
 				},
 				"package_dependencies": [
@@ -376,6 +368,7 @@
 						"availability_zones": [
 							"((deploy.target.zone.production))"
 						],
+						"deployment_strategy": {},
 						"dependencies": [
 							{
 								"name": "consul",
@@ -421,16 +414,12 @@
 										"name": "calculi.intermediate.key",
 										"value": "grsecret:tls.key"
 									}
-								],
-								"deployment_strategy": {
-									"canary_watch_time": "",
-									"update_watch_time": "",
-									"serial": false
-								}
+								]
 							}
 						]
 					}
 				],
+				"gated": true,
 				"post_deployment_actions": {
 					"instances": null,
 					"loadbalanced": false,
@@ -444,7 +433,8 @@
 						"HealthCheckPort": "",
 						"UnhealthyThresholdCount": 0
 					}
-				}
+				},
+				"cache_info": {}
 			}
 		],
 		"exit_actions": {
@@ -466,7 +456,13 @@
 				"code_analysis": null
 			}
 		},
-		"default_properties": [],
+		"default_properties": [
+			{
+				"name": "source_dirs",
+				"value": "./",
+				"type": "string"
+			}
+		],
 		"deployment_files": [
 			{
 				"source_path": "ci/bin/start-service.sh",
@@ -508,7 +504,7 @@
 			{
 				"name": "pipeline",
 				"image": {
-					"name": "docker-registry.service.consul:443/pipeline-image-repiper-test",
+					"name": "docker-registry.service.consul:443/pipeline-image-repiper",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
@@ -524,7 +520,7 @@
 			{
 				"name": "deployment",
 				"image": {
-					"name": "docker-registry.service.consul:443/pipeline-image-bosh-test",
+					"name": "docker-registry.service.consul:443/pipeline-image-bosh",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
@@ -532,7 +528,7 @@
 			{
 				"name": "idgenerator",
 				"image": {
-					"name": "docker-registry.service.consul:443/gr-id-generator",
+					"name": "docker-registry.service.consul:443/gr-id-generator-test",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
@@ -602,9 +598,17 @@
 				}
 			},
 			{
+				"name": "gr-gcs-resource",
+				"image": {
+					"name": "docker-registry.service.consul:443/gr-gcs-resource",
+					"version": "latest",
+					"location": "docker-registry.service.consul:443"
+				}
+			},
+			{
 				"name": "build",
 				"image": {
-					"name": "docker-registry.service.consul:443/pipeline-image-go-tools",
+					"name": "docker-registry.service.consul:443/pipeline-image-java-tools",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
