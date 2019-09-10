@@ -295,7 +295,7 @@
 							}
 						],
 						"code_analysis": {
-							"publish": true,
+							"publish": false,
 							"properties": null
 						},
 						"delete_instances": false
@@ -309,7 +309,10 @@
 								"message": ""
 							}
 						],
-						"code_analysis": null,
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						},
 						"delete_instances": false
 					},
 					"on_failure": {
@@ -321,7 +324,10 @@
 								"message": ""
 							}
 						],
-						"code_analysis": null,
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						},
 						"delete_instances": false
 					},
 					"on_abort": {
@@ -333,7 +339,10 @@
 								"message": ""
 							}
 						],
-						"code_analysis": null,
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						},
 						"delete_instances": false
 					}
 				},
