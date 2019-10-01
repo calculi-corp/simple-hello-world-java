@@ -673,7 +673,7 @@
 			{
 				"name": "pipeline",
 				"image": {
-					"name": "docker-registry.service.consul:443/pipeline-image-repiper",
+					"name": "docker-registry.service.consul:443/pipeline-image-cli-test",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
@@ -689,7 +689,7 @@
 			{
 				"name": "deployment",
 				"image": {
-					"name": "docker-registry.service.consul:443/pipeline-image-bosh",
+					"name": "docker-registry.service.consul:443/pipeline-image-cli-test",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
@@ -697,7 +697,7 @@
 			{
 				"name": "idgenerator",
 				"image": {
-					"name": "docker-registry.service.consul:443/gr-id-generator-test",
+					"name": "docker-registry.service.consul:443/gr-id-generator",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
