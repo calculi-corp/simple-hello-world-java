@@ -630,6 +630,11 @@
 				"name": "source_dirs",
 				"value": "./",
 				"type": "string"
+			},
+			{
+				"name": "centos.release.build",
+				"value": "true",
+				"type": "boolean"
 			}
 		],
 		"deployment_files": [
