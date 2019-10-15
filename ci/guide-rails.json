@@ -283,6 +283,14 @@
 				"run_after": [
 					"Integration"
 				],
+				"job_steps": [
+					{
+						"name": "perform tests again",
+						"definition": "perform tests again",
+						"command": "bin/integration-test.sh \u003e ${TEST_LOGS_DIR}/tests.txt",
+						"properties": null
+					}
+				],
 				"exit_actions": {
 					"default": {
 						"fetch_logs": true,
@@ -359,9 +367,13 @@
 				},
 				"process": {
 					"init": {
-						"command": ""
+						"command": "bin/start-service.sh "
 					}
 				},
+				"package_dependencies": [
+					"HelloWorld",
+					"jdk"
+				],
 				"instance_tags": [
 					{
 						"name": "application.name",
