@@ -648,6 +648,11 @@
 				"name": "centos.release.build",
 				"value": "true",
 				"type": "boolean"
+			},
+			{
+				"name": "warden.centos.release.build",
+				"value": "true",
+				"type": "boolean"
 			}
 		],
 		"deployment_files": [
