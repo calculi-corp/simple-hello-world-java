@@ -696,7 +696,7 @@
 			{
 				"name": "pipeline",
 				"image": {
-					"name": "docker-registry.service.consul:443/pipeline-image-cli-warden-test",
+					"name": "docker-registry.service.consul:443/pipeline-image-cli-test",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
@@ -712,7 +712,7 @@
 			{
 				"name": "deployment",
 				"image": {
-					"name": "docker-registry.service.consul:443/pipeline-image-cli-warden-test",
+					"name": "docker-registry.service.consul:443/pipeline-image-cli-test",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
@@ -728,7 +728,7 @@
 			{
 				"name": "emitter",
 				"image": {
-					"name": "docker-registry.service.consul:443/guide-rails-emitter",
+					"name": "docker-registry.service.consul:443/guide-rails-emitter-test",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
