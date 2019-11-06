@@ -768,7 +768,7 @@
 			{
 				"name": "sonar",
 				"image": {
-					"name": "docker-registry.service.consul:443/concourse-sonarqube-resource",
+					"name": "docker-registry.service.consul:443/concourse-sonarqube-resource-test",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
