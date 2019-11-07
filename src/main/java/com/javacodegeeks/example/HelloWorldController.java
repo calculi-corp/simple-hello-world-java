@@ -12,4 +12,8 @@ public class HelloWorldController {
 	public String sayHello() {
 		return "Hello " + companyName + " Welcome To Guide-Rails®!";
 	}
+
+        public String test() {
+            return "Test";
+        }
 }
