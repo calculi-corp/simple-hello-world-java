@@ -50,7 +50,7 @@
 					{
 						"name": "list ",
 						"definition": "list ",
-						"command": "ls -R\n",
+						"command": "ls -R\n\n",
 						"properties": null
 					}
 				],
@@ -295,7 +295,7 @@
 							}
 						],
 						"code_analysis": {
-							"publish": true,
+							"publish": false,
 							"properties": null
 						},
 						"delete_instances": true
@@ -309,7 +309,10 @@
 								"message": ""
 							}
 						],
-						"code_analysis": null
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						}
 					},
 					"on_failure": {
 						"notifications": [
@@ -320,7 +323,10 @@
 								"message": ""
 							}
 						],
-						"code_analysis": null
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						}
 					},
 					"on_abort": {
 						"notifications": [
@@ -331,7 +337,10 @@
 								"message": ""
 							}
 						],
-						"code_analysis": null
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						}
 					}
 				},
 				"deployment_strategy": {
