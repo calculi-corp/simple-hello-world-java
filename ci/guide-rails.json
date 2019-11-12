@@ -4,7 +4,7 @@
 	},
 	"application": {
 		"name": "simple-hello-world-java",
-		"language": "NODEJS",
+		"language": "JAVA_MAVEN",
 		"artifact_store": {
 			"type": "s3",
 			"repositories": [
