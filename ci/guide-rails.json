@@ -864,7 +864,7 @@
 			{
 				"name": "pipeline",
 				"image": {
-					"name": "docker-registry.service.consul:443/pipeline-image-cli-test",
+					"name": "docker-registry.service.consul:443/pipeline-image-cli",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
@@ -880,7 +880,7 @@
 			{
 				"name": "deployment",
 				"image": {
-					"name": "docker-registry.service.consul:443/pipeline-image-cli-test",
+					"name": "docker-registry.service.consul:443/pipeline-image-cli",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
@@ -936,7 +936,7 @@
 			{
 				"name": "sonar",
 				"image": {
-					"name": "docker-registry.service.consul:443/concourse-sonarqube-resource-test",
+					"name": "docker-registry.service.consul:443/concourse-sonarqube-resource",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
