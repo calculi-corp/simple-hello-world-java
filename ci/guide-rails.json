@@ -823,6 +823,11 @@
 				"name": "warden.centos.release.build",
 				"value": "true",
 				"type": "boolean"
+			},
+			{
+				"name": "jdk.version",
+				"value": "11",
+				"type": "string"
 			}
 		],
 		"deployment_files": [
