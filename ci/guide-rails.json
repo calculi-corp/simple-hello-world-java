@@ -139,7 +139,7 @@
 					{
 						"name": "perform test",
 						"definition": "perform test",
-						"command": "#bin/integration-test.sh \u003e ${TEST_LOGS_DIR}/tests.txt\necho \"did this job step get executed? and if so, where is this echo statement to appear?\"",
+						"command": "#bin/integration-test.sh \u003e ${TEST_LOGS_DIR}/tests.txt\necho \"just a comment and an echo statement\"",
 						"properties": null
 					}
 				],
@@ -288,7 +288,7 @@
 					{
 						"name": "known failing command",
 						"definition": "known failing command",
-						"command": "#a=5\necho $a\necho \"bar\"",
+						"command": "echo \"just a simple echo\"",
 						"properties": null
 					}
 				],
