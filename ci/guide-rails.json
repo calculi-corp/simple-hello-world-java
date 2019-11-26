@@ -141,6 +141,12 @@
 						"definition": "perform test",
 						"command": "bin/integration-test.sh \u003e ${TEST_LOGS_DIR}/tests.txt",
 						"properties": null
+					},
+					{
+						"name": "known failing command",
+						"definition": "known failing command",
+						"command": "set -e\n\n# we make 'ls' exit with exit code 1 by giving it a nonsensical param\nif ls foobar; then\n  echo \"foo\"\nelse\n  echo \"bar\"\nfi",
+						"properties": null
 					}
 				],
 				"exit_actions": {
