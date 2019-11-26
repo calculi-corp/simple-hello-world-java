@@ -141,12 +141,6 @@
 						"definition": "perform test",
 						"command": "bin/integration-test.sh \u003e ${TEST_LOGS_DIR}/tests.txt",
 						"properties": null
-					},
-					{
-						"name": "known failing command",
-						"definition": "known failing command",
-						"command": "# I don't think we even got this far\n#set -e\n#\n# we make 'ls' exit with exit code 1 by giving it a nonsensical param\n#if ls foobar; then\n#  echo \"foo\"\n#else\n#  echo \"bar\"\n#fi",
-						"properties": null
 					}
 				],
 				"exit_actions": {
@@ -190,7 +184,7 @@
 				},
 				"process": {
 					"init": {
-						"command": "bin/start-service.sh"
+						"command": ""
 					}
 				},
 				"package_dependencies": [
@@ -366,6 +360,10 @@
 						"command": ""
 					}
 				},
+				"package_dependencies": [
+					"HelloWorld",
+					"jdk"
+				],
 				"instance_tags": [
 					{
 						"name": "application.name",
