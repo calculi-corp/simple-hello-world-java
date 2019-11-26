@@ -139,7 +139,7 @@
 					{
 						"name": "perform test",
 						"definition": "perform test",
-						"command": "bin/integration-test.sh \u003e ${TEST_LOGS_DIR}/tests.txt",
+						"command": "#bin/integration-test.sh \u003e ${TEST_LOGS_DIR}/tests.txt\necho \"did this job step get executed? and if so, where is this echo statement to appear?\"",
 						"properties": null
 					}
 				],
