@@ -145,7 +145,7 @@
 					{
 						"name": "known failing command",
 						"definition": "known failing command",
-						"command": "set -e\n\n# we make 'ls' exit with exit code 1 by giving it a nonsensical param\nif ls foobar; then\n  echo \"foo\"\nelse\n  echo \"bar\"\nfi",
+						"command": "# I don't think we even got this far\n#set -e\n#\n# we make 'ls' exit with exit code 1 by giving it a nonsensical param\n#if ls foobar; then\n#  echo \"foo\"\n#else\n#  echo \"bar\"\n#fi",
 						"properties": null
 					}
 				],
