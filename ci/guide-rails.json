@@ -284,6 +284,14 @@
 				"run_after": [
 					"Build"
 				],
+				"job_steps": [
+					{
+						"name": "known failing command",
+						"definition": "known failing command",
+						"command": "set -euxo pipefail\n\n#a=5\necho $a\necho \"bar\"",
+						"properties": null
+					}
+				],
 				"exit_actions": {
 					"default": {
 						"fetch_logs": true,
