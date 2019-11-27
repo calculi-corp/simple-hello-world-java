@@ -139,7 +139,7 @@
 					{
 						"name": "perform test",
 						"definition": "perform test",
-						"command": "bin/integration-test.sh \u003e ${TEST_LOGS_DIR}/tests.txt\necho \"just a comment and an echo statement\"",
+						"command": "bin/integration-test.sh \u003e ${TEST_LOGS_DIR}/tests.txt",
 						"properties": null
 					}
 				],
@@ -288,7 +288,7 @@
 					{
 						"name": "known failing command",
 						"definition": "known failing command",
-						"command": "echo $a\necho \"just a simple failing task - unbound variiable\"",
+						"command": "set -euxo pipefail\necho $a\necho \"bar\"",
 						"properties": null
 					}
 				],
