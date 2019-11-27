@@ -113,6 +113,7 @@
 						"value": "((application.name))"
 					}
 				],
+				"gated": true,
 				"post_deployment_actions": {
 					"instances": null,
 					"loadbalanced": false,
@@ -288,7 +289,7 @@
 					{
 						"name": "known failing command",
 						"definition": "known failing command",
-						"command": "set -euxo pipefail\n\n# echo \"This should not have been executed\"\necho \"bar\"",
+						"command": "set -euxo pipefail\necho $a\necho \"bar\"",
 						"properties": null
 					}
 				],
