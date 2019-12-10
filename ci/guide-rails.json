@@ -924,7 +924,7 @@
 			{
 				"name": "git-resource",
 				"image": {
-					"name": "docker-registry.service.consul:443/gr-git-resource",
+					"name": "docker-registry.service.consul:443/gr-git-resource-test",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
