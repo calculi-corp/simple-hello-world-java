@@ -44,7 +44,7 @@
 					{
 						"name": "create jar",
 						"definition": "create jar",
-						"command": "mvn package",
+						"command": "mvn versions:set -DnewVersion=${APPLICATION_VERSION}\nmvn package",
 						"properties": null
 					},
 					{
@@ -184,7 +184,7 @@
 				},
 				"process": {
 					"init": {
-						"command": "bin/start-service.sh"
+						"command": ""
 					}
 				},
 				"package_dependencies": [
@@ -261,6 +261,7 @@
 						]
 					}
 				],
+				"gated": true,
 				"post_deployment_actions": {
 					"instances": null,
 					"loadbalanced": false,
@@ -278,10 +279,191 @@
 				"cache_info": {}
 			},
 			{
+				"name": "Isolation",
+				"segment_type": "isolation",
+				"run_after": [
+					"Build"
+				],
+				"job_steps": [
+					{
+						"name": "known failing command",
+						"definition": "known failing command",
+						"command": "set -euxo pipefail\na=\"foo\"\necho $a\necho \"bar\"",
+						"properties": null
+					}
+				],
+				"exit_actions": {
+					"default": {
+						"fetch_logs": true,
+						"notifications": [
+							{
+								"type": "slack",
+								"send_notification": false,
+								"to": null,
+								"message": ""
+							}
+						],
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						},
+						"delete_instances": true
+					},
+					"on_success": {
+						"notifications": [
+							{
+								"type": "slack",
+								"send_notification": false,
+								"to": null,
+								"message": ""
+							}
+						],
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						}
+					},
+					"on_failure": {
+						"notifications": [
+							{
+								"type": "slack",
+								"send_notification": false,
+								"to": null,
+								"message": ""
+							}
+						],
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						}
+					},
+					"on_abort": {
+						"notifications": [
+							{
+								"type": "slack",
+								"send_notification": false,
+								"to": null,
+								"message": ""
+							}
+						],
+						"code_analysis": {
+							"publish": false,
+							"properties": null
+						}
+					}
+				},
+				"deployment_strategy": {
+					"canaries": 1,
+					"max_in_flight": 1,
+					"canary_watch_time": "5000-30000",
+					"update_watch_time": "5000-30000",
+					"serial": false
+				},
+				"application_init": {
+					"command": "",
+					"arguments": null
+				},
+				"process": {
+					"init": {
+						"command": ""
+					}
+				},
+				"package_dependencies": [
+					"HelloWorld",
+					"jdk"
+				],
+				"instance_tags": [
+					{
+						"name": "application.name",
+						"value": "((application.name))"
+					}
+				],
+				"instance_groups": [
+					{
+						"name": "((application.name))",
+						"number_of_instances": 1,
+						"persistent_disk_type": "",
+						"vm_type": "default",
+						"os_type": "default",
+						"networks": [
+							"((deploy.target.network.isolation))"
+						],
+						"availability_zones": [
+							"((deploy.target.zone.isolation))"
+						],
+						"deployment_strategy": {},
+						"dependencies": [
+							{
+								"name": "consul",
+								"release": "consul",
+								"provides": [
+									{
+										"name": "consul_servers.as",
+										"value": "consul_1"
+									}
+								],
+								"consumes": [
+									{
+										"name": "consul_servers.from",
+										"value": "consul_1"
+									}
+								],
+								"properties": [
+									{
+										"name": "consul.servicename",
+										"value": "((consul.servicename))"
+									},
+									{
+										"name": "consul.environment",
+										"value": "((consul.environment))"
+									},
+									{
+										"name": "consul.datacenter",
+										"value": "((consul.datacenter))"
+									},
+									{
+										"name": "consul.server",
+										"value": "false"
+									},
+									{
+										"name": "consul.joinservers",
+										"value": "((consul.joinservers))"
+									},
+									{
+										"name": "calculi.intermediate.cert",
+										"value": "grsecret:tls.cert"
+									},
+									{
+										"name": "calculi.intermediate.key",
+										"value": "grsecret:tls.key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"post_deployment_actions": {
+					"instances": null,
+					"loadbalanced": false,
+					"loadbalancer": {
+						"TargetGroupName": "",
+						"TargetGroupPort": 0,
+						"TargetGroupProtocol": "",
+						"TargetType": "",
+						"VPCID": "",
+						"HealthCheckEnabled": false,
+						"HealthCheckPort": "",
+						"UnhealthyThresholdCount": 0
+					}
+				}
+			},
+			{
 				"name": "Release",
 				"segment_type": "release",
+				"persistent": true,
 				"run_after": [
-					"Integration"
+					"Integration",
+					"Isolation"
 				],
 				"job_steps": [
 					{
@@ -444,6 +626,7 @@
 						]
 					}
 				],
+				"gated": true,
 				"post_deployment_actions": {
 					"instances": null,
 					"loadbalanced": false,
@@ -653,6 +836,11 @@
 				"name": "warden.centos.release.build",
 				"value": "true",
 				"type": "boolean"
+			},
+			{
+				"name": "jdk.version",
+				"value": "11",
+				"type": "string"
 			}
 		],
 		"deployment_files": [
@@ -696,7 +884,7 @@
 			{
 				"name": "pipeline",
 				"image": {
-					"name": "docker-registry.service.consul:443/pipeline-image-cli-test",
+					"name": "docker-registry.service.consul:443/pipeline-image-cli",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
@@ -712,7 +900,7 @@
 			{
 				"name": "deployment",
 				"image": {
-					"name": "docker-registry.service.consul:443/pipeline-image-cli-test",
+					"name": "docker-registry.service.consul:443/pipeline-image-cli",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
@@ -728,7 +916,7 @@
 			{
 				"name": "emitter",
 				"image": {
-					"name": "docker-registry.service.consul:443/guide-rails-emitter-test",
+					"name": "docker-registry.service.consul:443/guide-rails-emitter",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
@@ -736,7 +924,7 @@
 			{
 				"name": "git-resource",
 				"image": {
-					"name": "docker-registry.service.consul:443/gr-git-resource",
+					"name": "docker-registry.service.consul:443/gr-git-resource-test",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
@@ -768,7 +956,7 @@
 			{
 				"name": "sonar",
 				"image": {
-					"name": "docker-registry.service.consul:443/concourse-sonarqube-resource-test",
+					"name": "docker-registry.service.consul:443/concourse-sonarqube-resource",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
