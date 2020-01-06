@@ -44,7 +44,7 @@
 					{
 						"name": "create jar",
 						"definition": "create jar",
-						"command": "echo \"application version ${APPLICATION_VERSION}\nmvn versions:set -DnewVersion=${APPLICATION_VERSION}\nmvn package",
+						"command": "echo \"application version ${APPLICATION_VERSION}\"\nmvn versions:set -DnewVersion=${APPLICATION_VERSION}\nmvn package",
 						"properties": null
 					},
 					{
