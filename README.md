@@ -5,6 +5,8 @@ Simple java app for testing JAVA_MAVEN language templates.
 January - 21st 8:00 PM PST to 9:00 PM PST
 February - 3rd and 8th - 8:00 PM PST to 9:00 PM PST
 
+March releases will be updated soon
+
 
 
 
