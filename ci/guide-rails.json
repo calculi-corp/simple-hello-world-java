@@ -915,7 +915,7 @@
 			{
 				"name": "emitter",
 				"image": {
-					"name": "docker-registry.service.consul:443/guide-rails-emitter",
+					"name": "docker-registry.service.consul:443/guide-rails-emitter-test",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
@@ -923,7 +923,7 @@
 			{
 				"name": "git-resource",
 				"image": {
-					"name": "docker-registry.service.consul:443/gr-git-resource-test",
+					"name": "docker-registry.service.consul:443/gr-git-resource",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
