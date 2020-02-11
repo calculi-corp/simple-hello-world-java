@@ -30,6 +30,12 @@
 				"segment_type": "build",
 				"job_steps": [
 					{
+						"name": "print env",
+						"definition": "print env",
+						"command": "env | sort",
+						"properties": null
+					},
+					{
 						"name": "build",
 						"definition": "build",
 						"command": "mvn compile\n",
