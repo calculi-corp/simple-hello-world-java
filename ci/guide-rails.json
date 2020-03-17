@@ -834,17 +834,17 @@
 			},
 			{
 				"name": "centos.release.build",
-				"value": "true",
+				"value": true,
 				"type": "boolean"
 			},
 			{
 				"name": "warden.centos.release.build",
-				"value": "true",
+				"value": true,
 				"type": "boolean"
 			},
 			{
 				"name": "jdk.version",
-				"value": "11",
+				"value": "12",
 				"type": "string"
 			}
 		],
