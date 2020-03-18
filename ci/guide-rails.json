@@ -844,7 +844,7 @@
 			},
 			{
 				"name": "jdk.version",
-				"value": "12",
+				"value": "11",
 				"type": "string"
 			}
 		],
