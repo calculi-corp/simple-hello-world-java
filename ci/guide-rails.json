@@ -846,6 +846,11 @@
 				"name": "jdk.version",
 				"value": "12",
 				"type": "string"
+			},
+			{
+				"name": "gr.host.address",
+				"value": " ",
+				"type": "string"
 			}
 		],
 		"deployment_files": [
