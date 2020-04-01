@@ -56,7 +56,7 @@
 					{
 						"name": "list ",
 						"definition": "list ",
-						"command": "ls -R\n# not a real change",
+						"command": "ls -R",
 						"properties": null
 					}
 				],
