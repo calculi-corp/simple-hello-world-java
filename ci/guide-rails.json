@@ -220,49 +220,8 @@
 						"dependencies": [
 							{
 								"name": "consul",
-								"release": "consul-warden-centos",
-								"provides": [
-									{
-										"name": "consul_servers.as",
-										"value": "consul_1"
-									}
-								],
-								"consumes": [
-									{
-										"name": "consul_servers.from",
-										"value": "consul_1"
-									}
-								],
-								"properties": [
-									{
-										"name": "consul.servicename",
-										"value": "((consul.servicename))"
-									},
-									{
-										"name": "consul.environment",
-										"value": "((consul.environment))"
-									},
-									{
-										"name": "consul.datacenter",
-										"value": "((consul.datacenter))"
-									},
-									{
-										"name": "consul.server",
-										"value": "false"
-									},
-									{
-										"name": "consul.joinservers",
-										"value": "((consul.joinservers))"
-									},
-									{
-										"name": "calculi.intermediate.cert",
-										"value": "grsecret:tls.cert"
-									},
-									{
-										"name": "calculi.intermediate.key",
-										"value": "grsecret:tls.key"
-									}
-								]
+								"release": "consul",
+								"properties": []
 							}
 						]
 					}
@@ -401,49 +360,8 @@
 						"dependencies": [
 							{
 								"name": "consul",
-								"release": "consul-warden-centos",
-								"provides": [
-									{
-										"name": "consul_servers.as",
-										"value": "consul_1"
-									}
-								],
-								"consumes": [
-									{
-										"name": "consul_servers.from",
-										"value": "consul_1"
-									}
-								],
-								"properties": [
-									{
-										"name": "consul.servicename",
-										"value": "((consul.servicename))"
-									},
-									{
-										"name": "consul.environment",
-										"value": "((consul.environment))"
-									},
-									{
-										"name": "consul.datacenter",
-										"value": "((consul.datacenter))"
-									},
-									{
-										"name": "consul.server",
-										"value": "false"
-									},
-									{
-										"name": "consul.joinservers",
-										"value": "((consul.joinservers))"
-									},
-									{
-										"name": "calculi.intermediate.cert",
-										"value": "grsecret:tls.cert"
-									},
-									{
-										"name": "calculi.intermediate.key",
-										"value": "grsecret:tls.key"
-									}
-								]
+								"release": "consul",
+								"properties": []
 							}
 						]
 					}
@@ -585,49 +503,8 @@
 						"dependencies": [
 							{
 								"name": "consul",
-								"release": "consul-warden-centos",
-								"provides": [
-									{
-										"name": "consul_servers.as",
-										"value": "consul_1"
-									}
-								],
-								"consumes": [
-									{
-										"name": "consul_servers.from",
-										"value": "consul_1"
-									}
-								],
-								"properties": [
-									{
-										"name": "consul.servicename",
-										"value": "((consul.servicename))"
-									},
-									{
-										"name": "consul.environment",
-										"value": "((consul.environment))"
-									},
-									{
-										"name": "consul.datacenter",
-										"value": "((consul.datacenter))"
-									},
-									{
-										"name": "consul.server",
-										"value": "false"
-									},
-									{
-										"name": "consul.joinservers",
-										"value": "((consul.joinservers))"
-									},
-									{
-										"name": "calculi.intermediate.cert",
-										"value": "grsecret:tls.cert"
-									},
-									{
-										"name": "calculi.intermediate.key",
-										"value": "grsecret:tls.key"
-									}
-								]
+								"release": "consul",
+								"properties": []
 							}
 						]
 					}
@@ -742,49 +619,8 @@
 						"dependencies": [
 							{
 								"name": "consul",
-								"release": "consul-warden-centos",
-								"provides": [
-									{
-										"name": "consul_servers.as",
-										"value": "consul_1"
-									}
-								],
-								"consumes": [
-									{
-										"name": "consul_servers.from",
-										"value": "consul_1"
-									}
-								],
-								"properties": [
-									{
-										"name": "consul.servicename",
-										"value": "((consul.servicename))"
-									},
-									{
-										"name": "consul.environment",
-										"value": "((consul.environment))"
-									},
-									{
-										"name": "consul.datacenter",
-										"value": "((consul.datacenter))"
-									},
-									{
-										"name": "consul.server",
-										"value": "false"
-									},
-									{
-										"name": "consul.joinservers",
-										"value": "((consul.joinservers))"
-									},
-									{
-										"name": "calculi.intermediate.cert",
-										"value": "grsecret:tls.cert"
-									},
-									{
-										"name": "calculi.intermediate.key",
-										"value": "grsecret:tls.key"
-									}
-								]
+								"release": "consul",
+								"properties": []
 							}
 						]
 					}
@@ -839,7 +675,7 @@
 			},
 			{
 				"name": "warden.centos.release.build",
-				"value": true,
+				"value": "false",
 				"type": "boolean"
 			},
 			{
@@ -874,7 +710,7 @@
 		},
 		"releases": [
 			{
-				"name": "consul-warden-centos",
+				"name": "consul",
 				"version": "latest"
 			}
 		]
