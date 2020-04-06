@@ -38,7 +38,7 @@
 					{
 						"name": "build",
 						"definition": "build",
-						"command": "mvn compile\n",
+						"command": "mvn compile",
 						"properties": null
 					},
 					{
@@ -56,7 +56,7 @@
 					{
 						"name": "list ",
 						"definition": "list ",
-						"command": "ls -R",
+						"command": "ls -R\n# not a real change",
 						"properties": null
 					}
 				],
@@ -221,7 +221,48 @@
 							{
 								"name": "consul",
 								"release": "consul",
-								"properties": []
+								"provides": [
+									{
+										"name": "consul_servers.as",
+										"value": "consul_1"
+									}
+								],
+								"consumes": [
+									{
+										"name": "consul_servers.from",
+										"value": "consul_1"
+									}
+								],
+								"properties": [
+									{
+										"name": "consul.servicename",
+										"value": "((consul.servicename))"
+									},
+									{
+										"name": "consul.environment",
+										"value": "((consul.environment))"
+									},
+									{
+										"name": "consul.datacenter",
+										"value": "((consul.datacenter))"
+									},
+									{
+										"name": "consul.server",
+										"value": "false"
+									},
+									{
+										"name": "consul.joinservers",
+										"value": "((consul.joinservers))"
+									},
+									{
+										"name": "calculi.intermediate.cert",
+										"value": "grsecret:tls.cert"
+									},
+									{
+										"name": "calculi.intermediate.key",
+										"value": "grsecret:tls.key"
+									}
+								]
 							}
 						]
 					}
@@ -361,7 +402,48 @@
 							{
 								"name": "consul",
 								"release": "consul",
-								"properties": []
+								"provides": [
+									{
+										"name": "consul_servers.as",
+										"value": "consul_1"
+									}
+								],
+								"consumes": [
+									{
+										"name": "consul_servers.from",
+										"value": "consul_1"
+									}
+								],
+								"properties": [
+									{
+										"name": "consul.servicename",
+										"value": "((consul.servicename))"
+									},
+									{
+										"name": "consul.environment",
+										"value": "((consul.environment))"
+									},
+									{
+										"name": "consul.datacenter",
+										"value": "((consul.datacenter))"
+									},
+									{
+										"name": "consul.server",
+										"value": "false"
+									},
+									{
+										"name": "consul.joinservers",
+										"value": "((consul.joinservers))"
+									},
+									{
+										"name": "calculi.intermediate.cert",
+										"value": "grsecret:tls.cert"
+									},
+									{
+										"name": "calculi.intermediate.key",
+										"value": "grsecret:tls.key"
+									}
+								]
 							}
 						]
 					}
@@ -504,7 +586,48 @@
 							{
 								"name": "consul",
 								"release": "consul",
-								"properties": []
+								"provides": [
+									{
+										"name": "consul_servers.as",
+										"value": "consul_1"
+									}
+								],
+								"consumes": [
+									{
+										"name": "consul_servers.from",
+										"value": "consul_1"
+									}
+								],
+								"properties": [
+									{
+										"name": "consul.servicename",
+										"value": "((consul.servicename))"
+									},
+									{
+										"name": "consul.environment",
+										"value": "((consul.environment))"
+									},
+									{
+										"name": "consul.datacenter",
+										"value": "((consul.datacenter))"
+									},
+									{
+										"name": "consul.server",
+										"value": "false"
+									},
+									{
+										"name": "consul.joinservers",
+										"value": "((consul.joinservers))"
+									},
+									{
+										"name": "calculi.intermediate.cert",
+										"value": "grsecret:tls.cert"
+									},
+									{
+										"name": "calculi.intermediate.key",
+										"value": "grsecret:tls.key"
+									}
+								]
 							}
 						]
 					}
@@ -620,7 +743,48 @@
 							{
 								"name": "consul",
 								"release": "consul",
-								"properties": []
+								"provides": [
+									{
+										"name": "consul_servers.as",
+										"value": "consul_1"
+									}
+								],
+								"consumes": [
+									{
+										"name": "consul_servers.from",
+										"value": "consul_1"
+									}
+								],
+								"properties": [
+									{
+										"name": "consul.servicename",
+										"value": "((consul.servicename))"
+									},
+									{
+										"name": "consul.environment",
+										"value": "((consul.environment))"
+									},
+									{
+										"name": "consul.datacenter",
+										"value": "((consul.datacenter))"
+									},
+									{
+										"name": "consul.server",
+										"value": "false"
+									},
+									{
+										"name": "consul.joinservers",
+										"value": "((consul.joinservers))"
+									},
+									{
+										"name": "calculi.intermediate.cert",
+										"value": "grsecret:tls.cert"
+									},
+									{
+										"name": "calculi.intermediate.key",
+										"value": "grsecret:tls.key"
+									}
+								]
 							}
 						]
 					}
@@ -675,17 +839,12 @@
 			},
 			{
 				"name": "warden.centos.release.build",
-				"value": "false",
+				"value": false,
 				"type": "boolean"
 			},
 			{
 				"name": "jdk.version",
 				"value": "12",
-				"type": "string"
-			},
-			{
-				"name": "gr.host.address",
-				"value": " ",
 				"type": "string"
 			}
 		],
@@ -730,7 +889,7 @@
 			{
 				"name": "pipeline",
 				"image": {
-					"name": "docker-registry.service.consul:443/pipeline-image-cli-test",
+					"name": "docker-registry.service.consul:443/pipeline-image-cli",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
@@ -746,7 +905,7 @@
 			{
 				"name": "deployment",
 				"image": {
-					"name": "docker-registry.service.consul:443/pipeline-image-cli-test",
+					"name": "docker-registry.service.consul:443/pipeline-image-cli",
 					"version": "latest",
 					"location": "docker-registry.service.consul:443"
 				}
