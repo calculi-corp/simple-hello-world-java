@@ -38,7 +38,7 @@
 					{
 						"name": "build",
 						"definition": "build",
-						"command": "mvn compile",
+						"command": "mvn compile\n",
 						"properties": null
 					},
 					{
@@ -56,7 +56,7 @@
 					{
 						"name": "list ",
 						"definition": "list ",
-						"command": "ls -R\n# not a real change",
+						"command": "ls -R",
 						"properties": null
 					}
 				],
@@ -220,7 +220,7 @@
 						"dependencies": [
 							{
 								"name": "consul",
-								"release": "consul",
+								"release": "consul-warden-centos",
 								"provides": [
 									{
 										"name": "consul_servers.as",
@@ -401,7 +401,7 @@
 						"dependencies": [
 							{
 								"name": "consul",
-								"release": "consul",
+								"release": "consul-warden-centos",
 								"provides": [
 									{
 										"name": "consul_servers.as",
@@ -585,7 +585,7 @@
 						"dependencies": [
 							{
 								"name": "consul",
-								"release": "consul",
+								"release": "consul-warden-centos",
 								"provides": [
 									{
 										"name": "consul_servers.as",
@@ -742,7 +742,7 @@
 						"dependencies": [
 							{
 								"name": "consul",
-								"release": "consul",
+								"release": "consul-warden-centos",
 								"provides": [
 									{
 										"name": "consul_servers.as",
@@ -839,12 +839,17 @@
 			},
 			{
 				"name": "warden.centos.release.build",
-				"value": false,
+				"value": true,
 				"type": "boolean"
 			},
 			{
 				"name": "jdk.version",
 				"value": "12",
+				"type": "string"
+			},
+			{
+				"name": "gr.host.address",
+				"value": " ",
 				"type": "string"
 			}
 		],
@@ -869,7 +874,7 @@
 		},
 		"releases": [
 			{
-				"name": "consul",
+				"name": "consul-warden-centos",
 				"version": "latest"
 			}
 		]
