@@ -851,6 +851,11 @@
 				"name": "gr.host.address",
 				"value": " ",
 				"type": "string"
+			},
+			{
+				"name": "gr.veracode.static.scan",
+				"value": "false",
+				"type": "string"
 			}
 		],
 		"deployment_files": [
