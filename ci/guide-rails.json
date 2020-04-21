@@ -32,7 +32,7 @@
 					{
 						"name": "print env",
 						"definition": "print env",
-						"command": "env | sort\n",
+						"command": "env | sort\nls",
 						"properties": null
 					},
 					{
