@@ -1,6 +1,6 @@
 {
 	"metadata": {
-		"version": 1
+		"version": 2
 	},
 	"application": {
 		"name": "simple-hello-world-java",
@@ -10,15 +10,15 @@
 			"repositories": [
 				{
 					"category": "rc-packaging",
-					"bucket": "guide-rails-calculi-rc"
+					"bucket": "guide-rails-calculi-vmcaws-rc"
 				},
 				{
 					"category": "final-packaging",
-					"bucket": "guide-rails-calculi-final"
+					"bucket": "guide-rails-calculi-vmcaws-final"
 				},
 				{
 					"category": "logs",
-					"bucket": "guide-rails-calculi-logs"
+					"bucket": "guide-rails-calculi-vmcaws-logs"
 				}
 			]
 		}
@@ -28,38 +28,6 @@
 			{
 				"name": "Build",
 				"segment_type": "build",
-				"job_steps": [
-					{
-						"name": "print env",
-						"definition": "print env",
-						"command": "env | sort\nls\npwd",
-						"properties": null
-					},
-					{
-						"name": "build",
-						"definition": "build",
-						"command": "mvn compile\n",
-						"properties": null
-					},
-					{
-						"name": "test",
-						"definition": "test",
-						"command": "mvn surefire-report:report \ncat ./target/surefire-reports/TEST-com.javacodegeeks.example.HelloWorldApplicationTests.xml \ncp ./target/surefire-reports/TEST-com.javacodegeeks.example.HelloWorldApplicationTests.xml ./test.xml\nmvn cobertura:cobertura  -Dcobertura.report.format=xml  -Dcobertura.aggregate=true install -e",
-						"properties": null
-					},
-					{
-						"name": "create jar",
-						"definition": "create jar",
-						"command": "echo \"application version ${APPLICATION_VERSION}\"\nmvn versions:set -DnewVersion=${APPLICATION_VERSION}\nmvn package",
-						"properties": null
-					},
-					{
-						"name": "list ",
-						"definition": "list ",
-						"command": "ls -R",
-						"properties": null
-					}
-				],
 				"exit_actions": {
 					"default": {
 						"fetch_logs": true,
@@ -133,7 +101,44 @@
 						"UnhealthyThresholdCount": 0
 					}
 				},
-				"cache_info": {}
+				"cache_info": {},
+				"tasks": [
+					{
+						"name": "simple-hello-world-java",
+						"steps": [
+							{
+								"name": "print env",
+								"definition": "print env",
+								"command": "env | sort\nls\npwd",
+								"properties": null
+							},
+							{
+								"name": "build",
+								"definition": "build",
+								"command": "mvn compile\n",
+								"properties": null
+							},
+							{
+								"name": "test",
+								"definition": "test",
+								"command": "mvn surefire-report:report \ncat ./target/surefire-reports/TEST-com.javacodegeeks.example.HelloWorldApplicationTests.xml \ncp ./target/surefire-reports/TEST-com.javacodegeeks.example.HelloWorldApplicationTests.xml ./test.xml\nmvn cobertura:cobertura  -Dcobertura.report.format=xml  -Dcobertura.aggregate=true install -e",
+								"properties": null
+							},
+							{
+								"name": "create jar",
+								"definition": "create jar",
+								"command": "echo \"application version ${APPLICATION_VERSION}\"\nmvn versions:set -DnewVersion=${APPLICATION_VERSION}\nmvn package",
+								"properties": null
+							},
+							{
+								"name": "list ",
+								"definition": "list ",
+								"command": "ls -R",
+								"properties": null
+							}
+						]
+					}
+				]
 			},
 			{
 				"name": "Integration",
