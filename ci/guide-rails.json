@@ -219,8 +219,8 @@
 						"deployment_strategy": {},
 						"dependencies": [
 							{
-								"name": "consul",
-								"release": "consul",
+								"name": "consul-centos",
+								"release": "consul-centos",
 								"provides": [
 									{
 										"name": "consul_servers.as",
@@ -400,8 +400,8 @@
 						"deployment_strategy": {},
 						"dependencies": [
 							{
-								"name": "consul",
-								"release": "consul",
+								"name": "consul-centos",
+								"release": "consul-centos",
 								"provides": [
 									{
 										"name": "consul_servers.as",
@@ -584,8 +584,8 @@
 						"deployment_strategy": {},
 						"dependencies": [
 							{
-								"name": "consul",
-								"release": "consul",
+								"name": "consul-centos",
+								"release": "consul-centos",
 								"provides": [
 									{
 										"name": "consul_servers.as",
@@ -741,8 +741,8 @@
 						"deployment_strategy": {},
 						"dependencies": [
 							{
-								"name": "consul",
-								"release": "consul",
+								"name": "consul-centos",
+								"release": "consul-centos",
 								"provides": [
 									{
 										"name": "consul_servers.as",
@@ -879,7 +879,7 @@
 		},
 		"releases": [
 			{
-				"name": "consul",
+				"name": "consul-centos",
 				"version": "latest"
 			}
 		]
