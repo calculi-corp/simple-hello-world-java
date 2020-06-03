@@ -109,7 +109,7 @@
 							{
 								"name": "print env",
 								"definition": "print env",
-								"command": "env | sort\nls\npwd",
+								"command": "env | sort\npwd",
 								"properties": null
 							},
 							{
@@ -292,7 +292,6 @@
 			{
 				"name": "Isolation",
 				"segment_type": "isolation",
-				"persistent": true,
 				"run_after": [
 					"Build"
 				],
