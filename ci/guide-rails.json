@@ -224,7 +224,7 @@
 						"deployment_strategy": {},
 						"dependencies": [
 							{
-								"name": "consul-centos",
+								"name": "consul",
 								"release": "consul-centos",
 								"provides": [
 									{
@@ -405,7 +405,7 @@
 						"deployment_strategy": {},
 						"dependencies": [
 							{
-								"name": "consul-centos",
+								"name": "consul",
 								"release": "consul-centos",
 								"provides": [
 									{
@@ -589,7 +589,7 @@
 						"deployment_strategy": {},
 						"dependencies": [
 							{
-								"name": "consul-centos",
+								"name": "consul",
 								"release": "consul-centos",
 								"provides": [
 									{
@@ -746,7 +746,7 @@
 						"deployment_strategy": {},
 						"dependencies": [
 							{
-								"name": "consul-centos",
+								"name": "consul",
 								"release": "consul-centos",
 								"provides": [
 									{
