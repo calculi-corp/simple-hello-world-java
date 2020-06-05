@@ -213,15 +213,22 @@
 						"name": "((application.name))",
 						"number_of_instances": 1,
 						"persistent_disk_type": "",
+						"cloud_provider_name": "guide-rails",
 						"vm_type": "default",
 						"os_type": "default",
 						"networks": [
-							"((deploy.target.network.integration))"
+							"integration"
 						],
 						"availability_zones": [
 							"((deploy.target.zone.integration))"
 						],
-						"deployment_strategy": {},
+						"deployment_strategy": {
+							"canaries": 1,
+							"max_in_flight": 1,
+							"canary_watch_time": "120000-240000",
+							"update_watch_time": "120000-240000",
+							"serial": false
+						},
 						"dependencies": [
 							{
 								"name": "consul",
@@ -394,15 +401,22 @@
 						"name": "((application.name))",
 						"number_of_instances": 1,
 						"persistent_disk_type": "",
+						"cloud_provider_name": "guide-rails",
 						"vm_type": "default",
 						"os_type": "default",
 						"networks": [
-							"((deploy.target.network.isolation))"
+							"isolation"
 						],
 						"availability_zones": [
 							"((deploy.target.zone.isolation))"
 						],
-						"deployment_strategy": {},
+						"deployment_strategy": {
+							"canaries": 1,
+							"max_in_flight": 1,
+							"canary_watch_time": "5000-30000",
+							"update_watch_time": "5000-30000",
+							"serial": false
+						},
 						"dependencies": [
 							{
 								"name": "consul",
@@ -578,15 +592,22 @@
 						"name": "((application.name))",
 						"number_of_instances": 1,
 						"persistent_disk_type": "",
+						"cloud_provider_name": "guide-rails",
 						"vm_type": "default",
 						"os_type": "default",
 						"networks": [
-							"((deploy.target.network.release))"
+							"release"
 						],
 						"availability_zones": [
 							"((deploy.target.zone.release))"
 						],
-						"deployment_strategy": {},
+						"deployment_strategy": {
+							"canaries": 1,
+							"max_in_flight": 1,
+							"canary_watch_time": "5000-30000",
+							"update_watch_time": "5000-30000",
+							"serial": false
+						},
 						"dependencies": [
 							{
 								"name": "consul",
@@ -735,15 +756,22 @@
 						"name": "((application.name))",
 						"number_of_instances": 1,
 						"persistent_disk_type": "",
+						"cloud_provider_name": "guide-rails",
 						"vm_type": "default",
 						"os_type": "default",
 						"networks": [
-							"((deploy.target.network.production))"
+							"production"
 						],
 						"availability_zones": [
 							"((deploy.target.zone.production))"
 						],
-						"deployment_strategy": {},
+						"deployment_strategy": {
+							"canaries": 1,
+							"max_in_flight": 1,
+							"canary_watch_time": "120000-240000",
+							"update_watch_time": "120000-240000",
+							"serial": false
+						},
 						"dependencies": [
 							{
 								"name": "consul",
