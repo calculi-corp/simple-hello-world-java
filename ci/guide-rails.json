@@ -219,9 +219,7 @@
 						"networks": [
 							"integration"
 						],
-						"availability_zones": [
-							"((deploy.target.zone.integration))"
-						],
+						"availability_zones": null,
 						"deployment_strategy": {
 							"canaries": 1,
 							"max_in_flight": 1,
@@ -407,9 +405,7 @@
 						"networks": [
 							"isolation"
 						],
-						"availability_zones": [
-							"((deploy.target.zone.isolation))"
-						],
+						"availability_zones": null,
 						"deployment_strategy": {
 							"canaries": 1,
 							"max_in_flight": 1,
@@ -598,9 +594,7 @@
 						"networks": [
 							"release"
 						],
-						"availability_zones": [
-							"((deploy.target.zone.release))"
-						],
+						"availability_zones": null,
 						"deployment_strategy": {
 							"canaries": 1,
 							"max_in_flight": 1,
@@ -762,9 +756,7 @@
 						"networks": [
 							"production"
 						],
-						"availability_zones": [
-							"((deploy.target.zone.production))"
-						],
+						"availability_zones": null,
 						"deployment_strategy": {
 							"canaries": 1,
 							"max_in_flight": 1,
