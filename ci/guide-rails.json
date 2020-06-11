@@ -47,6 +47,12 @@
 						"code_analysis": null
 					}
 				},
+				"properties": [
+					{
+						"name": "test",
+						"value": "t"
+					}
+				],
 				"deployment_strategy": {
 					"canary_watch_time": "",
 					"update_watch_time": "",
