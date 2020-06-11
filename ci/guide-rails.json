@@ -4,7 +4,24 @@
 	},
 	"application": {
 		"name": "simple-hello-world-java",
-		"language": "JAVA_MAVEN"
+		"language": "JAVA_MAVEN",
+		"artifact_store": {
+			"type": "s3",
+			"repositories": [
+				{
+					"category": "rc-packaging",
+					"bucket": "guide-rails-calculi-vmcaws-rc"
+				},
+				{
+					"category": "final-packaging",
+					"bucket": "guide-rails-calculi-vmcaws-final"
+				},
+				{
+					"category": "logs",
+					"bucket": "guide-rails-calculi-vmcaws-logs"
+				}
+			]
+		}
 	},
 	"pipeline": {
 		"segments": [
