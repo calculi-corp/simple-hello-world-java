@@ -115,7 +115,7 @@
 							{
 								"name": "print env",
 								"definition": "print env",
-								"command": "env | sort\npwd",
+								"command": "env | sort",
 								"properties": null
 							},
 							{
