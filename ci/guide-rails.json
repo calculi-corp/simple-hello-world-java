@@ -236,7 +236,7 @@
 						"dependencies": [
 							{
 								"name": "consul",
-								"release": "consul-centos",
+								"release": "consul",
 								"provides": [
 									{
 										"name": "consul_servers.as",
@@ -422,7 +422,7 @@
 						"dependencies": [
 							{
 								"name": "consul",
-								"release": "consul-centos",
+								"release": "consul",
 								"provides": [
 									{
 										"name": "consul_servers.as",
@@ -611,7 +611,7 @@
 						"dependencies": [
 							{
 								"name": "consul",
-								"release": "consul-centos",
+								"release": "consul",
 								"provides": [
 									{
 										"name": "consul_servers.as",
@@ -773,7 +773,7 @@
 						"dependencies": [
 							{
 								"name": "consul",
-								"release": "consul-centos",
+								"release": "consul",
 								"provides": [
 									{
 										"name": "consul_servers.as",
@@ -910,7 +910,7 @@
 		},
 		"releases": [
 			{
-				"name": "consul-centos",
+				"name": "consul",
 				"version": "latest"
 			}
 		]
